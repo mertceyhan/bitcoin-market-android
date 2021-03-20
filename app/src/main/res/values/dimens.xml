@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_10">10sp</dimen>
+    <dimen name="text_11">11sp</dimen>
+    <dimen name="text_12">12sp</dimen>
+    <dimen name="text_13">13sp</dimen>
+    <dimen name="text_14">14sp</dimen>
+    <dimen name="text_18">18sp</dimen>
+    <dimen name="text_24">24sp</dimen>
+    <dimen name="text_36">36sp</dimen>
+    <dimen name="text_48">48sp</dimen>
+    <dimen name="text_64">64sp</dimen>
+
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+
+    <dimen name="divider_width_thin">0.5dp</dimen>
+    <dimen name="min_height_line_chart">300dp</dimen>
+    <dimen name="width_button_error_action">250dp</dimen>
+    <dimen name="width_layout_error_animation">75dp</dimen>
+    <dimen name="height_layout_error_animation">75dp</dimen>
+</resources>
