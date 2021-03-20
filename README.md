@@ -7,7 +7,7 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 * [Dagger Hilt](https://dagger.dev/hilt/) - Easy implementation and less boilerplate code than Dagger2
 * [Coroutine](https://developer.android.com/kotlin/coroutines) & [Flow](https://developer.android.com/kotlin/flow)
 * [Retrofit](https://square.github.io/retrofit/)
-* [OkHtpp](https://square.github.io/okhttp/)
+* [OkHttp](https://square.github.io/okhttp/)
 * [Moshi](https://github.com/square/moshi)
 * [Jetpack Components](https://developer.android.com/jetpack) - ViewModel, LiveData, DataBinding and more
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
