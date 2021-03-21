@@ -25,4 +25,5 @@ object Versions {
     const val androidArchCoreTest = "2.1.0"
     const val coroutineTestVersion = "1.3.2"
     const val ktlintVersion = "0.40.0"
+    const val gradleVersionsPluginVersion = "0.38.0"
 }
