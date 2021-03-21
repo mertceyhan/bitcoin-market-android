@@ -2,6 +2,7 @@ package com.mertceyhan.bitcoinmarket.features.market.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.mertceyhan.bitcoinmarket.core.data.State
 import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
