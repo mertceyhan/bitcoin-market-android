@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/bitcoin_btc"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         android:textSize="@dimen/text_12"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
                         app:layout_constraintTop_toTopOf="@id/guideTop" />
@@ -87,6 +87,7 @@
                         android:id="@+id/textViewChangeRate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurface"
                         android:text="@{viewState.marketInformation.changeRate}"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         app:layout_constraintBottom_toBottomOf="@id/textViewCurrentPrice"
@@ -211,7 +212,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/open"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
                         app:layout_constraintTop_toBottomOf="@id/textViewPriceTitle" />
 
@@ -235,7 +236,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/high"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
                         app:layout_constraintTop_toBottomOf="@id/textViewOpenTitle" />
 
@@ -259,7 +260,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/average"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
                         app:layout_constraintTop_toBottomOf="@id/textViewHighTitle" />
 
@@ -294,7 +295,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/close"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toEndOf="@id/viewPriceDivider"
                         app:layout_constraintTop_toBottomOf="@id/textViewPriceTitle" />
 
@@ -318,7 +319,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/change"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toEndOf="@id/viewPriceDivider"
                         app:layout_constraintTop_toBottomOf="@id/textViewLowTitle" />
 
@@ -353,7 +354,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@string/low"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintStart_toEndOf="@id/viewPriceDivider"
                         app:layout_constraintTop_toBottomOf="@id/textViewCloseTitle" />
 
@@ -387,7 +388,7 @@
                         android:layout_marginTop="@dimen/space_8"
                         android:text="@{viewState.marketInformation.aboutChart}"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
-                        android:textColor="@color/gray_700"
+                        android:textColor="@color/color_subtitle"
                         app:layout_constraintBottom_toBottomOf="@id/guideBottom"
                         app:layout_constraintEnd_toEndOf="@id/guideEnd"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
