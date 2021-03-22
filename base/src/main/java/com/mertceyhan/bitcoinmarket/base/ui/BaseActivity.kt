@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.core.ui
+package com.mertceyhan.bitcoinmarket.base.ui
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

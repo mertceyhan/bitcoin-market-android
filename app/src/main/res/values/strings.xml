@@ -10,9 +10,6 @@
     <string name="change">Change</string>
     <string name="average">Average</string>
     <string name="try_again">Try Again</string>
-    <string name="no_internet_connection">No internet connection</string>
-    <string name="timeout_error_message">Looks like the server is taking to long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while</string>
-    <string name="something_went_wrong">Something went wrong</string>
     <string name="short_one_day">1d</string>
     <string name="short_seven_days">7d</string>
     <string name="short_thirty_days">30d</string>

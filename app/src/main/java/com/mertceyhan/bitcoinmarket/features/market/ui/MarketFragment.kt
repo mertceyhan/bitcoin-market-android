@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.BaseFragment
-import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
+import com.mertceyhan.bitcoinmarket.base.ui.BaseFragment
+import com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.utils.extensions.doIfTrue
 import com.mertceyhan.bitcoinmarket.utils.extensions.getButtonErrorAction

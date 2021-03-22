@@ -5,7 +5,7 @@
 
         <variable
             name="layoutViewState"
-            type="com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState" />
+            type="com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

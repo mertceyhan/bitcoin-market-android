@@ -55,6 +55,8 @@ kapt {
 
 dependencies {
 
+    api(project(":base"))
+
     implementation(Dependencies.kotlin)
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
@@ -86,4 +88,6 @@ dependencies {
 
     androidTestImplementation(Dependencies.junitExtensions)
     androidTestImplementation(Dependencies.espressoCore)
+
+
 }

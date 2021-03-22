@@ -7,7 +7,7 @@
 
         <variable
             name="layoutViewState"
-            type="com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState" />
+            type="com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState" />
 
         <variable
             name="viewState"

@@ -2,8 +2,7 @@ package com.mertceyhan.bitcoinmarket.features.market.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.mertceyhan.bitcoinmarket.core.data.State
-import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
+import com.mertceyhan.bitcoinmarket.base.data.State
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
@@ -40,11 +39,11 @@ class MarketViewModelTest {
 
     private val marketViewStateLiveDataValues = arrayListOf<MarketViewState>()
 
-    private val layoutViewStateLiveDataObserver = mockk<Observer<LayoutViewState>>()
+    private val layoutViewStateLiveDataObserver = mockk<Observer<com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState>>()
 
-    private val layoutViewStateLiveDataSlot = slot<LayoutViewState>()
+    private val layoutViewStateLiveDataSlot = slot<com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState>()
 
-    private val layoutViewStateLiveDataValues = arrayListOf<LayoutViewState>()
+    private val layoutViewStateLiveDataValues = arrayListOf<com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState>()
 
     @Before
     fun setUp() {

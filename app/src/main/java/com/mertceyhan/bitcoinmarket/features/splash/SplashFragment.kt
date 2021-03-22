@@ -1,11 +1,11 @@
-package com.mertceyhan.bitcoinmarket.features.splash.ui
+package com.mertceyhan.bitcoinmarket.features.splash
 
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.BaseFragment
+import com.mertceyhan.bitcoinmarket.base.ui.BaseFragment
 import com.mertceyhan.databinding.FragmentSplashBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

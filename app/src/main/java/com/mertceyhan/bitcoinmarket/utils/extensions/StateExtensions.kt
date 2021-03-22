@@ -2,7 +2,7 @@
 
 package com.mertceyhan.bitcoinmarket.utils.extensions
 
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.base.data.State
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.transform
 

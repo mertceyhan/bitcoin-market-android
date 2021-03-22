@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.core.data
+package com.mertceyhan.bitcoinmarket.base.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

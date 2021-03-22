@@ -1,7 +1,7 @@
 package com.mertceyhan.bitcoinmarket.features.market.data
 
-import com.mertceyhan.bitcoinmarket.core.data.BaseRepository
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.base.data.BaseRepository
+import com.mertceyhan.bitcoinmarket.base.data.State
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.MarketRemoteDataSource
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponse
 import kotlinx.coroutines.flow.Flow

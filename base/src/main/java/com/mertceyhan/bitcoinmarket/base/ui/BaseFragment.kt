@@ -1,10 +1,9 @@
-package com.mertceyhan.bitcoinmarket.core.ui
+package com.mertceyhan.bitcoinmarket.base.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -22,6 +21,6 @@ abstract class BaseFragment<VDB : ViewDataBinding> : Fragment() {
         return binding.root
     }
 
-    @LayoutRes
+
     abstract fun getLayoutId(): Int
 }

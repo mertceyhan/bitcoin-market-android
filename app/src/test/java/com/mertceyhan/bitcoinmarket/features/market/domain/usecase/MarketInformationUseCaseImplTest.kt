@@ -2,7 +2,7 @@ package com.mertceyhan.bitcoinmarket.features.market.domain.usecase
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.base.data.State
 import com.mertceyhan.bitcoinmarket.features.market.data.MarketRepository
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponseFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.mapper.MarketInformationMapper

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
+import com.mertceyhan.bitcoinmarket.base.ui.LayoutViewState
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import com.mertceyhan.bitcoinmarket.utils.extensions.doOnSuccess
@@ -34,7 +34,8 @@ class MarketViewModel @Inject constructor(
                     marketViewStateLiveData.value = MarketViewState(marketInformation)
                 }
                 .collect { state ->
-                    layoutViewStateLiveData.value = LayoutViewState(state)
+                    layoutViewStateLiveData.value =
+                        LayoutViewState(state)
                 }
         }
     }

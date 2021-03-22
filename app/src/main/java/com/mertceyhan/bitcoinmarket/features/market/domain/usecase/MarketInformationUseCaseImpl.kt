@@ -1,6 +1,5 @@
 package com.mertceyhan.bitcoinmarket.features.market.domain.usecase
 
-import com.mertceyhan.bitcoinmarket.core.data.State
 import com.mertceyhan.bitcoinmarket.features.market.data.MarketRepository
 import com.mertceyhan.bitcoinmarket.features.market.domain.mapper.MarketInformationMapper
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformation
@@ -15,7 +14,7 @@ class MarketInformationUseCaseImpl @Inject constructor(
     private val marketModelMapper: MarketInformationMapper
 ) : MarketInformationUseCase {
 
-    override suspend fun getMarketInformation(timespan: MarketInformationTimespan): Flow<State<MarketInformation>> =
+    override suspend fun getMarketInformation(timespan: MarketInformationTimespan): Flow<com.mertceyhan.bitcoinmarket.base.data.State<MarketInformation>> =
         marketRepository
             .fetchMarketPriceChart(timespan.value)
             .map { state ->

@@ -1,8 +1,8 @@
-package com.mertceyhan.bitcoinmarket.core.ui
+package com.mertceyhan.bitcoinmarket.base.ui
 
 import android.content.Context
-import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.base.R
+import com.mertceyhan.bitcoinmarket.base.data.State
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException

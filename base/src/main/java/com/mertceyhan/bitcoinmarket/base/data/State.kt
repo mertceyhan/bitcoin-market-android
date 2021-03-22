@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.core.data
+package com.mertceyhan.bitcoinmarket.base.data
 
 sealed class State<out T> {
 
