@@ -14,10 +14,12 @@
     <color name="transparent_80_red_500">#80EB6365</color>
 
     <color name="gray_700">#646C81</color>
-    <color name="gray_900">#23262D</color>
+    <color name="gray_200">#CCD0DD</color>
 
+    <color name="gray_900">#23262D</color>
+    <color name="gray_950">#22262D</color>
     <color name="black">#FF000000</color>
-    <color name="transparent_20_black">#20000000</color>
+    <color name="transparent_20_black">#07000000</color>
 
     <color name="white">#FFFFFFFF</color>
 </resources>
