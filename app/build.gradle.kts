@@ -55,22 +55,10 @@ kapt {
 
 dependencies {
 
-    api(project(":base"))
+    api(project(Modules.base))
 
-    implementation(Dependencies.kotlin)
-    implementation(Dependencies.coreKtx)
-    implementation(Dependencies.appCompat)
-    implementation(Dependencies.material)
-    implementation(Dependencies.constraintLayout)
-    implementation(Dependencies.swipeRefreshLayout)
     implementation(Dependencies.daggerHilt)
-    implementation(Dependencies.navigationFragment)
-    implementation(Dependencies.navigationUI)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.retrofitMoshiConverter)
-    implementation(Dependencies.okHttp)
-    implementation(Dependencies.okHttpLoggingInterceptor)
-    implementation(Dependencies.moshi)
+
     implementation(Dependencies.mpAndroidChart)
     implementation(Dependencies.lottie)
 
