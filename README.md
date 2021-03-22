@@ -24,12 +24,15 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 * Responsive layout design, vertical and horizontal usage
 * Good state handling
 * Unit tests
+* Dark theme
 
 ## Improvement points 🔴
 * Local storage & Cache
 * Instrumentation tests
 * Multi-modular project structure
-* Dark theme
+
+## Contributors 👏
+* [masreplay](https://github.com/masreplay)
 
 ## Credits 🙏
 * Thanks to [CoinMarketCap](https://play.google.com/store/apps/details?id=com.coinmarketcap.android&hl=en&gl=US) for the design
