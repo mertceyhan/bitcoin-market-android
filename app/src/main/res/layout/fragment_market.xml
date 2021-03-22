@@ -24,7 +24,7 @@
             isVisible="@{layoutViewState.success}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white">
+            android:background="?attr/colorSurface">
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -64,6 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_4"
+                        android:textColor="?attr/colorOnSurface"
                         android:text="@{viewState.marketInformation.currentPrice}"
                         android:textAppearance="?attr/textAppearanceHeadline4"
                         app:layout_constraintStart_toStartOf=" @id/guideStart"
@@ -122,7 +123,8 @@
                         app:chipBackgroundColor="@color/color_background_chip"
                         app:layout_constraintEnd_toStartOf="@id/chip30d"
                         app:layout_constraintStart_toEndOf="@id/chip1d"
-                        app:layout_constraintTop_toTopOf="@id/chip1d" />
+                        app:layout_constraintTop_toTopOf="@id/chip1d"
+                        tools:checked="true" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip30d"
@@ -195,6 +197,7 @@
                         android:id="@+id/textViewPriceTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_marginTop="@dimen/space_16"
                         android:text="@string/price"
                         android:textAppearance="?attr/textAppearanceHeadline5"
@@ -217,6 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/space_16"
+                        android:textColor="?attr/colorOnSurface"
                         android:text="@{viewState.marketInformation.openPrice}"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
                         app:layout_constraintBottom_toBottomOf="@id/textViewOpenTitle"
@@ -239,6 +243,7 @@
                         android:id="@+id/textViewHighPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_marginEnd="@dimen/space_16"
                         android:text="@{viewState.marketInformation.highPrice}"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
@@ -261,6 +266,7 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textViewAveragePrice"
                         android:layout_width="wrap_content"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/space_16"
                         android:text="@{viewState.marketInformation.averagePrice}"
@@ -294,6 +300,7 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textViewClosePrice"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewState.marketInformation.closePrice}"
@@ -328,6 +335,7 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textViewChangePrice"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewState.marketInformation.changePrice}"
@@ -352,6 +360,7 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/textViewLowPrice"
                         android:layout_width="wrap_content"
+                        android:textColor="?attr/colorOnSurface"
                         android:layout_height="wrap_content"
                         android:text="@{viewState.marketInformation.lowPrice}"
                         android:textAppearance="?attr/textAppearanceSubtitle2"
@@ -366,6 +375,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_24"
                         android:text="@string/about_chart"
+                        android:textColor="?attr/colorOnSurface"
                         android:textAppearance="?attr/textAppearanceHeadline5"
                         app:layout_constraintStart_toStartOf="@id/guideStart"
                         app:layout_constraintTop_toBottomOf="@id/textViewAverageTitle" />

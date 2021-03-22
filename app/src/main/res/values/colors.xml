@@ -15,7 +15,7 @@
 
     <color name="gray_700">#646C81</color>
     <color name="gray_900">#23262D</color>
-
+    <color name="gray_950">#22262D</color>
     <color name="black">#FF000000</color>
     <color name="transparent_20_black">#20000000</color>
 
