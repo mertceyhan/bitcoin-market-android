@@ -33,6 +33,7 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 
 ## Contributors 👏
 * [masreplay](https://github.com/masreplay)
+* [okanaydin](https://github.com/okanaydin)
 
 ## Credits 🙏
 * Thanks to [CoinMarketCap](https://play.google.com/store/apps/details?id=com.coinmarketcap.android&hl=en&gl=US) for the design
