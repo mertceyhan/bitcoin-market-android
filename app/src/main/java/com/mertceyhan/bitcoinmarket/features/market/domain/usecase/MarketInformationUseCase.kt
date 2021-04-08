@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MarketInformationUseCase {
 
-    suspend fun getMarketInformation(timespan: MarketInformationTimespan): Flow<State<MarketInformation>>
+    fun getMarketInformation(timespan: MarketInformationTimespan): Flow<State<MarketInformation>>
 }

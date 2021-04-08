@@ -11,6 +11,6 @@ class MarketRepositoryImp @Inject constructor(
     private val marketRemoteDataSource: MarketRemoteDataSource
 ) : MarketRepository, BaseRepository() {
 
-    override suspend fun fetchMarketPriceChart(timespan: String): Flow<State<MarketPriceChartResponse>> =
+    override fun fetchMarketPriceChart(timespan: String): Flow<State<MarketPriceChartResponse>> =
         apiCall { marketRemoteDataSource.fetchMarketPriceChart(timespan) }
 }

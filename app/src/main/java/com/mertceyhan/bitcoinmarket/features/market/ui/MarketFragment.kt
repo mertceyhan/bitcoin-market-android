@@ -46,12 +46,12 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
             }
 
             swipeRefreshLayout.setOnRefreshListener {
-                getMarketInformationWithLastTimespan()
+                getMarketInformationWithLastTimeSpan()
             }
 
             layoutError.setOnInflateListener { _, _ ->
                 getButtonErrorAction()?.setOnClickListener {
-                    getMarketInformationWithLastTimespan()
+                    getMarketInformationWithLastTimeSpan()
                 }
             }
 
@@ -114,7 +114,7 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
         )
     }
 
-    private fun getMarketInformationWithLastTimespan() {
+    private fun getMarketInformationWithLastTimeSpan() {
         getMarketInformation(binding.viewState?.marketInformation?.timespan)
     }
 }

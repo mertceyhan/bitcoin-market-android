@@ -2,24 +2,18 @@ package com.mertceyhan.bitcoinmarket.core.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.flowOn
 
 abstract class BaseRepository {
 
-    suspend fun <T : Any> apiCall(call: suspend () -> T): Flow<State<T>> =
-        withContext(Dispatchers.IO) {
-            flow {
-                try {
-                    this.emit(State.Loading)
-
-                    val response = call.invoke()
-
-                    this.emit(State.Success(data = response))
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    this.emit(State.Error(e))
-                }
-            }
-        }
+    fun <T : Any> apiCall(call: suspend () -> T): Flow<State<T>> =
+        flow {
+            emit(State.Loading)
+            emit(State.Success(data = call.invoke()))
+        }.catch { error ->
+            error.printStackTrace()
+            emit(State.Error(error))
+        }.flowOn(Dispatchers.IO)
 }

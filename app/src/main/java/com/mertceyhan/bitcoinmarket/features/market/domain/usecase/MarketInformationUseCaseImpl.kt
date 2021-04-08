@@ -15,7 +15,7 @@ class MarketInformationUseCaseImpl @Inject constructor(
     private val marketModelMapper: MarketInformationMapper
 ) : MarketInformationUseCase {
 
-    override suspend fun getMarketInformation(timespan: MarketInformationTimespan): Flow<State<MarketInformation>> =
+    override fun getMarketInformation(timespan: MarketInformationTimespan): Flow<State<MarketInformation>> =
         marketRepository
             .fetchMarketPriceChart(timespan.value)
             .map { state ->

@@ -9,8 +9,8 @@ import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformati
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import com.mertceyhan.bitcoinmarket.utils.extensions.doOnSuccess
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,15 +27,14 @@ class MarketViewModel @Inject constructor(
     fun getLayoutViewStateLiveData(): LiveData<LayoutViewState> = layoutViewStateLiveData
 
     fun getMarketInformation(timespan: MarketInformationTimespan) {
-        viewModelScope.launch {
-            marketInformationUseCase
-                .getMarketInformation(timespan)
-                .doOnSuccess { marketInformation ->
-                    marketViewStateLiveData.value = MarketViewState(marketInformation)
-                }
-                .collect { state ->
-                    layoutViewStateLiveData.value = LayoutViewState(state)
-                }
-        }
+        marketInformationUseCase
+            .getMarketInformation(timespan)
+            .doOnSuccess { marketInformation ->
+                marketViewStateLiveData.value = MarketViewState(marketInformation)
+            }
+            .onEach { state ->
+                layoutViewStateLiveData.value = LayoutViewState(state)
+            }
+            .launchIn(viewModelScope)
     }
 }

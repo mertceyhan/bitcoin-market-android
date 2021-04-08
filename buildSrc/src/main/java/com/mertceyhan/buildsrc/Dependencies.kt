@@ -35,10 +35,9 @@ object Dependencies {
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectricVersion}"
     const val androidArchCoreTest =
         "androidx.arch.core:core-testing:${Versions.androidArchCoreTest}"
-    const val coroutineTestCore =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutineTestVersion}"
-
-    const val coroutineTest =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutineTestVersion}"
+    const val coroutinesCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
+    const val coroutinesTest =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlintVersion}"
 }
