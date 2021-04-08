@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MarketRepository {
 
-    suspend fun fetchMarketPriceChart(timespan: String): Flow<State<MarketPriceChartResponse>>
+    fun fetchMarketPriceChart(timespan: String): Flow<State<MarketPriceChartResponse>>
 }

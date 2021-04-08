@@ -1,9 +1,9 @@
 package com.mertceyhan.bitcoinmarket.features
 
-import dagger.hilt.android.AndroidEntryPoint
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.core.ui.BaseActivity
 import com.mertceyhan.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {

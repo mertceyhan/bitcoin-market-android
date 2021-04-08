@@ -11,7 +11,6 @@ import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformati
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
@@ -20,7 +19,6 @@ import org.junit.Rule
 import org.junit.Test
 import java.io.IOException
 
-@ExperimentalCoroutinesApi
 class MarketInformationUseCaseImplTest {
 
     @get:Rule

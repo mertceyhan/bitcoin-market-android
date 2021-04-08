@@ -71,6 +71,7 @@ dependencies {
     implementation(Dependencies.moshi)
     implementation(Dependencies.mpAndroidChart)
     implementation(Dependencies.lottie)
+    implementation(Dependencies.coroutinesCore)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
@@ -81,8 +82,7 @@ dependencies {
     testImplementation(Dependencies.mockk)
     testImplementation(Dependencies.robolectric)
     testImplementation(Dependencies.androidArchCoreTest)
-    testImplementation(Dependencies.coroutineTestCore)
-    testImplementation(Dependencies.coroutineTest)
+    testImplementation(Dependencies.coroutinesTest)
 
     androidTestImplementation(Dependencies.junitExtensions)
     androidTestImplementation(Dependencies.espressoCore)
