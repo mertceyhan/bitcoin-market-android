@@ -2,15 +2,13 @@ package com.mertceyhan.bitcoinmarket.features.market.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.ColorInt
 import androidx.fragment.app.viewModels
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.core.ui.BaseFragment
 import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
-import com.mertceyhan.bitcoinmarket.utils.extensions.doIfTrue
-import com.mertceyhan.bitcoinmarket.utils.extensions.getButtonErrorAction
-import com.mertceyhan.bitcoinmarket.utils.extensions.inflate
-import com.mertceyhan.bitcoinmarket.utils.extensions.isNull
+import com.mertceyhan.bitcoinmarket.utils.extensions.*
 import com.mertceyhan.databinding.FragmentMarketBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,6 +34,7 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
                 isDragEnabled = false
                 xAxis.isEnabled = false
                 axisLeft.setDrawAxisLine(false)
+                axisLeft.textColor = getAxisLeftTextColor()
                 axisRight.isEnabled = false
                 legend.isEnabled = false
                 setTouchEnabled(false)
@@ -116,5 +115,14 @@ class MarketFragment : BaseFragment<FragmentMarketBinding>() {
 
     private fun getMarketInformationWithLastTimeSpan() {
         getMarketInformation(binding.viewState?.marketInformation?.timespan)
+    }
+
+    @ColorInt
+    private fun getAxisLeftTextColor(): Int {
+        return if (requireContext().darkModeEnabled()) {
+            requireContext().getCompatColor(R.color.white)
+        } else {
+            requireContext().getCompatColor(R.color.gray_950)
+        }
     }
 }
