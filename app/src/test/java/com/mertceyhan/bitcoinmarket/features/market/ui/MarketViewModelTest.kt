@@ -9,11 +9,7 @@ import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformati
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import com.mertceyhan.bitcoinmarket.utils.CoroutinesTestRule
 import com.mertceyhan.bitcoinmarket.utils.`should be`
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.slot
+import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
 import org.junit.Before

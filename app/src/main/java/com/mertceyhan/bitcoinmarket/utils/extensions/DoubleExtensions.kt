@@ -1,7 +1,7 @@
 package com.mertceyhan.bitcoinmarket.utils.extensions
 
 import java.text.NumberFormat
-import java.util.Locale
+import java.util.*
 
 fun Double?.orZero() = this ?: 0.0
 
