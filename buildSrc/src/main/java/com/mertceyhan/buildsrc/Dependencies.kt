@@ -40,4 +40,12 @@ object Dependencies {
     const val coroutinesTest =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlintVersion}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.composeVersion}"
+    const val composeAnimation = "androidx.compose.animation:animation:${Versions.composeVersion}"
+    const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeVersion}"
+    const val composeActivity =
+        "androidx.activity:activity-compose:${Versions.composeActivityVersion}"
+    const val composeViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
+    const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.composeVersion}"
 }

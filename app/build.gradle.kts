@@ -7,14 +7,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Configs.compileSdkVersion)
+    compileSdk = Configs.compileSdkVersion
 
     buildToolsVersion = Configs.buildToolsVersion
 
     defaultConfig {
         applicationId = Configs.applicationId
-        minSdkVersion(Configs.minSdkVersion)
-        targetSdkVersion(Configs.targetSdkVersion)
+        minSdk = Configs.minSdkVersion
+        targetSdk = Configs.targetSdkVersion
         versionCode = Configs.versionCode
         versionName = Configs.versionName
 
@@ -40,8 +40,13 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
+    }
+
     buildFeatures {
         dataBinding = true
+        compose = true
     }
 
     testOptions {
@@ -72,6 +77,11 @@ dependencies {
     implementation(Dependencies.mpAndroidChart)
     implementation(Dependencies.lottie)
     implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.composeMaterial)
+    implementation(Dependencies.composeAnimation)
+    implementation(Dependencies.composeTooling)
+    implementation(Dependencies.composeActivity)
+    implementation(Dependencies.composeViewModel)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
@@ -86,4 +96,5 @@ dependencies {
 
     androidTestImplementation(Dependencies.junitExtensions)
     androidTestImplementation(Dependencies.espressoCore)
+    androidTestImplementation(Dependencies.composeUiTest)
 }
