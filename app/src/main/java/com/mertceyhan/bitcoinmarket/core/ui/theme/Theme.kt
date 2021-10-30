@@ -39,6 +39,7 @@ fun BitcoinMarketTheme(
 ) {
     MaterialTheme(
         colors = if (darkTheme) darkThemeColors else lightThemeColors,
+        typography = typography,
         content = content
     )
 }
