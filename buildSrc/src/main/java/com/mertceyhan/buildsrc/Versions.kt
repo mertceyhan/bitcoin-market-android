@@ -3,7 +3,7 @@
 object Versions {
 
     const val gradleVersion = "7.0.0"
-    const val kotlinVersion = "1.5.21"
+    const val kotlinVersion = "1.5.31"
     const val coreKtxVersion = "1.6.0"
     const val appCompatVersion = "1.3.1"
     const val materialVersion = "1.4.0"
@@ -29,5 +29,6 @@ object Versions {
     const val composeVersion = "1.0.4"
     const val composeActivityVersion = "1.3.1"
     const val composeViewModelVersion = "2.4.0-rc01"
-    const val kotlinCompilerExtensionVersion = "1.0.1"
+    const val kotlinCompilerExtensionVersion = "1.1.0-alpha06"
+    const val composeConstraintLayoutVersion = "1.0.0-beta02"
 }
