@@ -7,28 +7,68 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.mertceyhan.R
+
+enum class TimeRange {
+    ONE_DAY, SEVEN_DAYS, THIRTY_DAYS, SIXTY_DAYS, NINETY_DAYS, ONE_YEAR;
+}
 
 @Composable
-fun TimeRangePicker(modifier: Modifier = Modifier) {
+fun TimeRangePicker(
+    modifier: Modifier = Modifier,
+    selectedTimeRange: TimeRange = TimeRange.THIRTY_DAYS,
+    onTimeRangeSelected: (TimeRange) -> Unit = {}
+) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.SpaceAround
     ) {
-        TimeRangeChip(time = "1d", isSelected = false) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_one_day),
+            isSelected = selectedTimeRange == TimeRange.ONE_DAY
+        ) {
+            onTimeRangeSelected(TimeRange.ONE_DAY)
+        }
 
-        TimeRangeChip(time = "7d", isSelected = false) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_seven_days),
+            isSelected = selectedTimeRange == TimeRange.SEVEN_DAYS
+        ) {
+            onTimeRangeSelected(TimeRange.SEVEN_DAYS)
+        }
 
-        TimeRangeChip(time = "30d", isSelected = true) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_thirty_days),
+            isSelected = selectedTimeRange == TimeRange.THIRTY_DAYS
+        ) {
+            onTimeRangeSelected(TimeRange.THIRTY_DAYS)
+        }
 
-        TimeRangeChip(time = "60d", isSelected = false) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_sixty_days),
+            isSelected = selectedTimeRange == TimeRange.SIXTY_DAYS
+        ) {
+            onTimeRangeSelected(TimeRange.SIXTY_DAYS)
+        }
 
-        TimeRangeChip(time = "90d", isSelected = false) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_ninety_days),
+            isSelected = selectedTimeRange == TimeRange.NINETY_DAYS
+        ) {
+            onTimeRangeSelected(TimeRange.NINETY_DAYS)
+        }
 
-        TimeRangeChip(time = "1y", isSelected = false) {}
+        TimeRangeChip(
+            time = stringResource(id = R.string.short_one_year),
+            isSelected = selectedTimeRange == TimeRange.ONE_YEAR
+        ) {
+            onTimeRangeSelected(TimeRange.ONE_YEAR)
+        }
     }
 }
 
@@ -36,10 +76,8 @@ fun TimeRangePicker(modifier: Modifier = Modifier) {
 private fun TimeRangeChip(
     time: String,
     isSelected: Boolean,
-    onSelected: (isSelected: Boolean) -> Unit
+    onTimeRangeSelected: () -> Unit
 ) {
-    var selected by remember { mutableStateOf(isSelected) }
-
     Box(
         modifier = Modifier
             .background(
@@ -47,8 +85,7 @@ private fun TimeRangeChip(
                 shape = RoundedCornerShape(20.dp)
             )
             .clickable {
-                selected = !selected
-                onSelected(selected)
+                onTimeRangeSelected()
             },
     ) {
         Text(
@@ -60,13 +97,8 @@ private fun TimeRangeChip(
 }
 
 @Preview(showBackground = true)
-@Composable
-private fun TimeRangePickerPreview() {
-    TimeRangePicker(modifier = Modifier.fillMaxWidth())
-}
-
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun TimeRangePickerPreviewDark() {
+private fun TimeRangePickerPreview() {
     TimeRangePicker(modifier = Modifier.fillMaxWidth())
 }

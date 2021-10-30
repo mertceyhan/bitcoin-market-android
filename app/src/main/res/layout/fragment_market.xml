@@ -11,7 +11,7 @@
 
         <variable
             name="viewState"
-            type="com.mertceyhan.bitcoinmarket.features.market.ui.MarketViewState" />
+            type="com.mertceyhan.bitcoinmarket.features.market.ui.MarketScreenViewState" />
     </data>
 
     <FrameLayout

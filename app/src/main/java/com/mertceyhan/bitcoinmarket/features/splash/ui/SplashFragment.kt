@@ -7,7 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +18,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.core.ui.BaseComposeFragment
-import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
 
 class SplashFragment : BaseComposeFragment() {
 
@@ -34,34 +33,32 @@ fun SplashScreen(
     alphaAnimationTargetValue: Float = 0f,
     alphaAnimationDurationMillis: Int = 1000
 ) {
-    BitcoinMarketTheme {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colors.background),
-            contentAlignment = Alignment.Center
-        ) {
-            var targetValue by remember { mutableStateOf(alphaAnimationTargetValue) }
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colors.background),
+        contentAlignment = Alignment.Center
+    ) {
+        var targetValue by remember { mutableStateOf(alphaAnimationTargetValue) }
 
-            val alpha: Float by animateFloatAsState(
-                targetValue = targetValue,
-                animationSpec = tween(alphaAnimationDurationMillis),
-                finishedListener = {
-                    navigationController?.navigate(
-                        SplashFragmentDirections.actionSplashFragmentToBitcoinMarketFragment()
-                    )
-                }
-            )
-
-            Image(
-                painter = painterResource(id = R.drawable.ic_app),
-                contentDescription = null,
-                modifier = Modifier.alpha(alpha)
-            )
-
-            LaunchedEffect(Unit) {
-                targetValue = 1f
+        val alpha: Float by animateFloatAsState(
+            targetValue = targetValue,
+            animationSpec = tween(alphaAnimationDurationMillis),
+            finishedListener = {
+                navigationController?.navigate(
+                    SplashFragmentDirections.actionSplashFragmentToBitcoinMarketFragment()
+                )
             }
+        )
+
+        Image(
+            painter = painterResource(id = R.drawable.ic_app),
+            contentDescription = null,
+            modifier = Modifier.alpha(alpha)
+        )
+
+        LaunchedEffect(Unit) {
+            targetValue = 1f
         }
     }
 }

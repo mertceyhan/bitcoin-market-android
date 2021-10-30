@@ -11,7 +11,7 @@ private const val MIN_ENTRY_COUNT_FOR_ANIMATION: Int = 30
 @BindingAdapter("setLineDataSet", "animateXDuration", requireAll = false)
 fun LineChart.setLineDataSet(
     lineDataSet: LineDataSet? = null,
-    animateXDuration: Int
+    animateXDuration: Int = 0
 ) {
     if (lineDataSet != null) {
         clear()

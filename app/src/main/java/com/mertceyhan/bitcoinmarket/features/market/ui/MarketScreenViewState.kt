@@ -4,13 +4,14 @@ import android.content.Context
 import androidx.annotation.VisibleForTesting
 import com.github.mikephil.charting.data.LineDataSet
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.components.TimeRange
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformation
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationChangeStatus
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.utils.extensions.getCompatColor
 import com.mertceyhan.bitcoinmarket.utils.extensions.getCompatDrawable
 
-class MarketViewState(
+class MarketScreenViewState(
     val marketInformation: MarketInformation
 ) {
 
@@ -25,12 +26,25 @@ class MarketViewState(
             setDrawCircles(false)
         }
 
+    fun getTimeRange() = when (marketInformation.timespan) {
+        MarketInformationTimespan.TIMESPAN_1DAYS -> TimeRange.ONE_DAY
+        MarketInformationTimespan.TIMESPAN_7DAYS -> TimeRange.SEVEN_DAYS
+        MarketInformationTimespan.TIMESPAN_30DAYS -> TimeRange.THIRTY_DAYS
+        MarketInformationTimespan.TIMESPAN_60DAYS -> TimeRange.SIXTY_DAYS
+        MarketInformationTimespan.TIMESPAN_90DAYS -> TimeRange.NINETY_DAYS
+        MarketInformationTimespan.TIMESPAN_1YEAR -> TimeRange.ONE_YEAR
+    }
+
+    fun isChangeStatusPositive(): Boolean =
+        marketInformation.changeStatus == MarketInformationChangeStatus.POSITIVE
+
     fun getChangeStatusIcon(): Int =
         if (marketInformation.changeStatus == MarketInformationChangeStatus.POSITIVE) {
             R.drawable.ic_arrow_positive
         } else {
             R.drawable.ic_arrow_negative
         }
+
 
     fun isChip1dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_1DAYS
 

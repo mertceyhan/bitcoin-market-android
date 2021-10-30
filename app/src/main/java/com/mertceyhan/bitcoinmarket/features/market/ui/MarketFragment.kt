@@ -1,128 +1,112 @@
 package com.mertceyhan.bitcoinmarket.features.market.ui
 
-import android.os.Bundle
-import android.view.View
-import androidx.annotation.ColorInt
-import androidx.fragment.app.viewModels
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.BaseFragment
-import com.mertceyhan.bitcoinmarket.core.ui.LayoutViewState
-import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
-import com.mertceyhan.bitcoinmarket.utils.extensions.*
-import com.mertceyhan.databinding.FragmentMarketBinding
+import com.mertceyhan.bitcoinmarket.components.*
+import com.mertceyhan.bitcoinmarket.core.ui.BaseComposeFragment
+import com.mertceyhan.bitcoinmarket.core.ui.UiState
+import com.mertceyhan.bitcoinmarket.features.error.ErrorScreen
+import com.mertceyhan.bitcoinmarket.features.error.ErrorScreenViewState
+import com.mertceyhan.bitcoinmarket.features.loading.LoadingScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MarketFragment : BaseFragment<FragmentMarketBinding>() {
+class MarketFragment : BaseComposeFragment() {
 
-    private val marketViewViewModel: MarketViewModel by viewModels()
-
-    override fun getLayoutId(): Int = R.layout.fragment_market
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setUpView()
-        setUpViewModel()
-        savedInstanceState.isNull().doIfTrue { getMarketInformation() }
+    @Composable
+    override fun Content() {
+        MarketScreen()
     }
+}
 
-    private fun setUpView() {
-        with(binding) {
-            lineChart.apply {
-                description.isEnabled = false
-                isDragEnabled = false
-                xAxis.isEnabled = false
-                axisLeft.setDrawAxisLine(false)
-                axisLeft.textColor = getAxisLeftTextColor()
-                axisRight.isEnabled = false
-                legend.isEnabled = false
-                setTouchEnabled(false)
-                setScaleEnabled(false)
-                setDrawGridBackground(false)
-                setDrawBorders(false)
-                invalidate()
-            }
+@Composable
+fun MarketScreen(marketViewModel: MarketViewModel = viewModel()) {
 
-            swipeRefreshLayout.setOnRefreshListener {
-                getMarketInformationWithLastTimeSpan()
-            }
+    val uiState by marketViewModel.getUiState()
 
-            layoutError.setOnInflateListener { _, _ ->
-                getButtonErrorAction()?.setOnClickListener {
-                    getMarketInformationWithLastTimeSpan()
+    when (uiState) {
+        is UiState.Success -> {
+
+            val viewState = (uiState as UiState.Success<MarketScreenViewState>).data
+
+            Surface {
+                Column {
+                    PriceHeader(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+                        currency = stringResource(id = R.string.bitcoin_btc),
+                        price = viewState.marketInformation.currentPrice,
+                        changeRate = viewState.marketInformation.changeRate,
+                        isChangeRatePositive = viewState.isChangeStatusPositive()
+                    )
+
+                    TimeRangePicker(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, top = 4.dp, end = 16.dp),
+                        selectedTimeRange = viewState.getTimeRange()
+                    ) { timeRange ->
+                        marketViewModel.getMarketInformation(timeRange)
+                    }
+
+                    Chart(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 8.dp),
+                        lineDataSet = viewState.getLineDataSet(LocalContext.current),
+                    )
+
+                    Price(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+                        openPrice = viewState.marketInformation.openPrice,
+                        closePrice = viewState.marketInformation.closePrice,
+                        highPrice = viewState.marketInformation.highPrice,
+                        lowPrice = viewState.marketInformation.lowPrice,
+                        averagePrice = viewState.marketInformation.averagePrice,
+                        changePrice = viewState.marketInformation.changePrice
+                    )
+
+                    AboutChart(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp, top = 24.dp, end = 16.dp),
+                        aboutChart = viewState.marketInformation.aboutChart
+                    )
                 }
             }
-
-            chip1d.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_1DAYS)
+        }
+        is UiState.Error -> {
+            ErrorScreen(errorScreenViewState = ErrorScreenViewState((uiState as UiState.Error).exception)) {
+                marketViewModel.getMarketInformation(TimeRange.THIRTY_DAYS)
             }
-
-            chip7d.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_7DAYS)
-            }
-
-            chip30d.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_30DAYS)
-            }
-
-            chip60d.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_60DAYS)
-            }
-
-            chip90d.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_90DAYS)
-            }
-
-            chip1y.setOnClickListener {
-                getMarketInformation(MarketInformationTimespan.TIMESPAN_1YEAR)
-            }
+        }
+        is UiState.Loading -> {
+            LoadingScreen()
         }
     }
 
-    private fun inflateLayoutError(layoutViewState: LayoutViewState) {
-        binding.layoutError.viewStub?.inflate(layoutViewState.isError())
+    LaunchedEffect(Unit) {
+        marketViewModel.getMarketInformation(TimeRange.THIRTY_DAYS)
     }
+}
 
-    private fun setUpViewModel() {
-        with(marketViewViewModel) {
-            getLayoutViewStateLiveData().observe(
-                viewLifecycleOwner,
-                { layoutViewState ->
-                    binding.layoutViewState = layoutViewState
-                    binding.executePendingBindings()
-                    inflateLayoutError(layoutViewState)
-                }
-            )
-
-            getMarketViewStateLiveData().observe(
-                viewLifecycleOwner,
-                { marketViewState ->
-                    binding.viewState = marketViewState
-                    binding.executePendingBindings()
-                }
-            )
-        }
-    }
-
-    private fun getMarketInformation(
-        timespan: MarketInformationTimespan? = MarketInformationTimespan.TIMESPAN_30DAYS
-    ) {
-        marketViewViewModel.getMarketInformation(
-            timespan = timespan ?: MarketInformationTimespan.TIMESPAN_30DAYS
-        )
-    }
-
-    private fun getMarketInformationWithLastTimeSpan() {
-        getMarketInformation(binding.viewState?.marketInformation?.timespan)
-    }
-
-    @ColorInt
-    private fun getAxisLeftTextColor(): Int {
-        return if (requireContext().darkModeEnabled()) {
-            requireContext().getCompatColor(R.color.white)
-        } else {
-            requireContext().getCompatColor(R.color.gray_950)
-        }
-    }
+@Preview(showBackground = true)
+@Composable
+private fun MarketScreenPreview() {
+    MarketScreen()
 }
