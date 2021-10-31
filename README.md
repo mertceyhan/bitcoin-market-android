@@ -9,14 +9,14 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 * [Retrofit](https://square.github.io/retrofit/)
 * [OkHttp](https://square.github.io/okhttp/)
 * [Moshi](https://github.com/square/moshi)
-* [Jetpack Components](https://developer.android.com/jetpack) - ViewModel, LiveData, DataBinding and more
+* [Jetpack Components](https://developer.android.com/jetpack) - Compose, ViewModel and more
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 * [Lottie](https://github.com/airbnb/lottie-android)
 * [Truth](https://truth.dev/) & [Mockk](https://mockk.io/) - For more readable unit tests
 * [Lottie](https://github.com/airbnb/lottie-android)
 
 ## Screenshots 📷
-<img src="/arts/splash-fragment.png" width="260"> &emsp;<img src="/arts/market-fragment-positive.png" width="260"> &emsp;<img src="/arts/market-fragment-negative.png" width="260">
+<img src="/arts/splash-screen.png" width="260"> &emsp;<img src="/arts/market-screen.png" width="260"> &emsp;<img src="/arts/market-screen-dark.png" width="260">
 
 ## Good points 🟢
 * Modern architecture with modern libraries
