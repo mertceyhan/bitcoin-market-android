@@ -1,18 +1,16 @@
 package com.mertceyhan.bitcoinmarket.features.market.domain.usecase
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.google.common.truth.Truth.assertThat
-import com.mertceyhan.bitcoinmarket.core.data.State
 import com.mertceyhan.bitcoinmarket.features.market.data.MarketRepository
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponseFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.mapper.MarketInformationMapper
+import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformation
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
+import com.mertceyhan.bitcoinmarket.utils.`should be`
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -48,10 +46,7 @@ class MarketInformationUseCaseImplTest {
 
             coEvery {
                 marketRepository.fetchMarketPriceChart(timespan.value)
-            } returns flow {
-                emit(State.Loading)
-                emit(State.Success(marketPriceChartResponse))
-            }
+            } returns (marketPriceChartResponse)
 
             coEvery {
                 marketInformationMapper.mapOnMarketPriceChartResponse(
@@ -61,15 +56,10 @@ class MarketInformationUseCaseImplTest {
             } returns marketInformation
 
             // when
-            val result = marketInformationUseCaseImpl
-                .getMarketInformation(timespan)
-                .toList()
+            val result = marketInformationUseCaseImpl.getMarketInformation(timespan)
 
             // then
-            assertThat(result[0]).isSameInstanceAs(State.Loading)
-            assertThat(result[1]).isInstanceOf(State.Success::class.java)
-            assertThat((result[1] as State.Success).data).isEqualTo(marketInformation)
-            assertThat(result.size).isEqualTo(2)
+            result `should be` marketInformation
 
             coVerify(exactly = 1) { marketRepository.fetchMarketPriceChart(timespan.value) }
             coVerify(exactly = 1) {
@@ -91,21 +81,19 @@ class MarketInformationUseCaseImplTest {
 
             coEvery {
                 marketRepository.fetchMarketPriceChart(timespan.value)
-            } returns flow {
-                emit(State.Loading)
-                emit(State.Error(error))
-            }
+            } throws (error)
 
             // when
-            val result = marketInformationUseCaseImpl
-                .getMarketInformation(timespan)
-                .toList()
+            var result: MarketInformation? = null
+
+            try {
+                result = marketInformationUseCaseImpl.getMarketInformation(timespan)
+            } catch (exception: Exception) {
+                exception `should be` error
+            }
 
             // then
-            assertThat(result[0]).isSameInstanceAs(State.Loading)
-            assertThat(result[1]).isInstanceOf(State.Error::class.java)
-            assertThat((result[1] as State.Error).exception).isEqualTo(error)
-            assertThat(result.size).isEqualTo(2)
+            result `should be` null
 
             coVerify(exactly = 1) { marketRepository.fetchMarketPriceChart(timespan.value) }
             coVerify(exactly = 0) {
@@ -114,5 +102,6 @@ class MarketInformationUseCaseImplTest {
                     timespan
                 )
             }
+
         }
 }

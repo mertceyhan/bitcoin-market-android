@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.components.TimeRange
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformation
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationChangeStatus
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
@@ -26,179 +27,107 @@ class MarketViewStateTest {
 
     private val marketInformation = mockk<MarketInformation>()
 
-    private lateinit var marketViewState: MarketViewState
+    private lateinit var marketScreenViewState: MarketScreenViewState
 
     @Before
     fun setUp() {
-        marketViewState = MarketViewState(marketInformation)
+        marketScreenViewState = MarketScreenViewState(marketInformation)
     }
 
     @Test
-    fun `when changeStatus is POSITIVE, then getChangeStatusIcon returns ic_arrow_positive`() {
-        // given
-        every { marketInformation.changeStatus } returns MarketInformationChangeStatus.POSITIVE
+    fun `when timespan is TIMESPAN_1DAYS, then getTimeRange() returns ONE_DAY `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_1DAYS)
 
-        // when
-        val result = marketViewState.getChangeStatusIcon()
+        //when
+        val result = marketScreenViewState.getTimeRange()
 
-        // then
-        result `should be` R.drawable.ic_arrow_positive
+        //then
+        result `should be` TimeRange.ONE_DAY
     }
 
     @Test
-    fun `when changeStatus is not POSITIVE, then getChangeStatusIcon returns ic_arrow_negative`() {
-        // given
-        every { marketInformation.changeStatus } returns MarketInformationChangeStatus.NEGATIVE
+    fun `when timespan is TIMESPAN_7DAYS, then getTimeRange() returns SEVEN_DAYS `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_7DAYS)
 
-        // when
-        val result = marketViewState.getChangeStatusIcon()
+        //when
+        val result = marketScreenViewState.getTimeRange()
 
-        // then
-        result `should be` R.drawable.ic_arrow_negative
+        //then
+        result `should be` TimeRange.SEVEN_DAYS
     }
 
     @Test
-    fun `when timespan is TIMESPAN_1DAYS, then isChip1dChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
+    fun `when timespan is TIMESPAN_30DAYS, then getTimeRange() returns THIRTY_DAYS `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_30DAYS)
 
-        // when
-        val result = marketViewState.isChip1dChecked()
+        //when
+        val result = marketScreenViewState.getTimeRange()
 
-        // then
-        result `should be` true
+        //then
+        result `should be` TimeRange.THIRTY_DAYS
     }
 
     @Test
-    fun `when timespan is not TIMESPAN_1DAYS, then isChip1dChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_30DAYS
+    fun `when timespan is TIMESPAN_60DAYS, then getTimeRange() returns SIXTY_DAYS `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_60DAYS)
 
-        // when
-        val result = marketViewState.isChip1dChecked()
+        //when
+        val result = marketScreenViewState.getTimeRange()
 
-        // then
+        //then
+        result `should be` TimeRange.SIXTY_DAYS
+    }
+
+    @Test
+    fun `when timespan is TIMESPAN_90DAYS, then getTimeRange() returns NINETY_DAYS `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_90DAYS)
+
+        //when
+        val result = marketScreenViewState.getTimeRange()
+
+        //then
+        result `should be` TimeRange.NINETY_DAYS
+    }
+
+    @Test
+    fun `when timespan is TIMESPAN_1YEAR, then getTimeRange() returns ONE_YEAR `() {
+        //given
+        every { marketInformation.timespan } returns (MarketInformationTimespan.TIMESPAN_1YEAR)
+
+        //when
+        val result = marketScreenViewState.getTimeRange()
+
+        //then
+        result `should be` TimeRange.ONE_YEAR
+    }
+
+    @Test
+    fun `when changeStatus is NEGATIVE, then isChangeStatusPositive() returns false `() {
+        //given
+        every { marketInformation.changeStatus } returns (MarketInformationChangeStatus.NEGATIVE)
+
+        //when
+        val result = marketScreenViewState.isChangeStatusPositive()
+
+        //then
         result `should be` false
     }
 
     @Test
-    fun `when timespan is TIMESPAN_7DAYS, then isChip7dChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_7DAYS
+    fun `when changeStatus is POSITIVE, then isChangeStatusPositive() returns true `() {
+        //given
+        every { marketInformation.changeStatus } returns (MarketInformationChangeStatus.POSITIVE)
 
-        // when
-        val result = marketViewState.isChip7dChecked()
+        //when
+        val result = marketScreenViewState.isChangeStatusPositive()
 
-        // then
+        //then
         result `should be` true
-    }
-
-    @Test
-    fun `when timespan is not TIMESPAN_7DAYS, then isChip7dChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
-
-        // when
-        val result = marketViewState.isChip7dChecked()
-
-        // then
-        result `should be` false
-    }
-
-    @Test
-    fun `when timespan is TIMESPAN_30DAYS, then isChip30dChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_30DAYS
-
-        // when
-        val result = marketViewState.isChip30dChecked()
-
-        // then
-        result `should be` true
-    }
-
-    @Test
-    fun `when timespan is not TIMESPAN_30DAYS, then isChip30dChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
-
-        // when
-        val result = marketViewState.isChip30dChecked()
-
-        // then
-        result `should be` false
-    }
-
-    @Test
-    fun `when timespan is TIMESPAN_60DAYS, then isChip60dChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_60DAYS
-
-        // when
-        val result = marketViewState.isChip60dChecked()
-
-        // then
-        result `should be` true
-    }
-
-    @Test
-    fun `when timespan is not TIMESPAN_60DAYS, then isChip60dChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
-
-        // when
-        val result = marketViewState.isChip60dChecked()
-
-        // then
-        result `should be` false
-    }
-
-    @Test
-    fun `when timespan is TIMESPAN_90DAYS, then isChip90dChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_90DAYS
-
-        // when
-        val result = marketViewState.isChip90dChecked()
-
-        // then
-        result `should be` true
-    }
-
-    @Test
-    fun `when timespan is not TIMESPAN_90DAYS, then isChip90dChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
-
-        // when
-        val result = marketViewState.isChip90dChecked()
-
-        // then
-        result `should be` false
-    }
-
-    @Test
-    fun `when timespan is TIMESPAN_1YEAR, then isChip1yChecked returns true`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1YEAR
-
-        // when
-        val result = marketViewState.isChip1yChecked()
-
-        // then
-        result `should be` true
-    }
-
-    @Test
-    fun `when timespan is not TIMESPAN_1YEAR, then isChip1yChecked returns false`() {
-        // given
-        every { marketInformation.timespan } returns MarketInformationTimespan.TIMESPAN_1DAYS
-
-        // when
-        val result = marketViewState.isChip1yChecked()
-
-        // then
-        result `should be` false
     }
 
     @Test
@@ -207,7 +136,7 @@ class MarketViewStateTest {
         every { marketInformation.changeStatus } returns MarketInformationChangeStatus.POSITIVE
 
         // when
-        val result = marketViewState.getColor(context)
+        val result = marketScreenViewState.getColor(context)
 
         // then
         result `should be` context.getCompatColor(R.color.green_500)
@@ -219,7 +148,7 @@ class MarketViewStateTest {
         every { marketInformation.changeStatus } returns MarketInformationChangeStatus.NEGATIVE
 
         // when
-        val result = marketViewState.getColor(context)
+        val result = marketScreenViewState.getColor(context)
 
         // then
         result `should be` context.getCompatColor(R.color.red_500)
@@ -231,7 +160,7 @@ class MarketViewStateTest {
         every { marketInformation.changeStatus } returns MarketInformationChangeStatus.POSITIVE
 
         // when
-        val result = marketViewState.getBackground(context)
+        val result = marketScreenViewState.getBackground(context)
 
         // then
         shadowOf(result).createdFromResId `should be` R.drawable.background_positive_chart
@@ -243,7 +172,7 @@ class MarketViewStateTest {
         every { marketInformation.changeStatus } returns MarketInformationChangeStatus.NEGATIVE
 
         // when
-        val result = marketViewState.getBackground(context)
+        val result = marketScreenViewState.getBackground(context)
 
         // then
         shadowOf(result).createdFromResId `should be` R.drawable.background_negative_chart
