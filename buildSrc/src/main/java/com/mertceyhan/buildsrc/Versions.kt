@@ -13,7 +13,7 @@ object Versions {
     const val junitExtensionsVersion = "1.1.3"
     const val espressoCoreVersion = "3.4.0"
     const val daggerHiltVersion = "2.39.1"
-    const val navigationVersion = "2.3.5"
+    const val composeNavigationVersion = "2.4.0-beta01"
     const val retrofitVersion = "2.9.0"
     const val okHttpVersion = "4.9.2"
     const val moshiVersion = "1.12.0"
@@ -31,4 +31,5 @@ object Versions {
     const val composeViewModelVersion = "2.4.0-rc01"
     const val kotlinCompilerExtensionVersion = "1.1.0-alpha06"
     const val composeConstraintLayoutVersion = "1.0.0-beta02"
+    const val hiltNavigationCompose = "1.0.0-alpha03"
 }

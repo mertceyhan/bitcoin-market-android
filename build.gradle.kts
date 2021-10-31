@@ -15,7 +15,6 @@ buildscript {
         classpath(ClassPaths.gradle)
         classpath(ClassPaths.kotlinGradlePlugin)
         classpath(ClassPaths.daggerHiltGradlePlugin)
-        classpath(ClassPaths.navigationSafeArgs)
     }
 }
 

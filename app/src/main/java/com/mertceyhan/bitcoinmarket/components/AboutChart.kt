@@ -1,6 +1,7 @@
 package com.mertceyhan.bitcoinmarket.components
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
@@ -18,13 +19,14 @@ fun AboutChart(
     modifier: Modifier = Modifier,
     aboutChart: String
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         Text(
             text = stringResource(R.string.about_chart),
             style = typography.h5
         )
-
-        Spacer(modifier = Modifier.size(8.dp))
 
         Text(
             text = aboutChart,

@@ -12,27 +12,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.components.*
-import com.mertceyhan.bitcoinmarket.core.ui.BaseComposeFragment
 import com.mertceyhan.bitcoinmarket.core.ui.UiState
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreen
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreenViewState
 import com.mertceyhan.bitcoinmarket.features.loading.LoadingScreen
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class MarketFragment : BaseComposeFragment() {
-
-    @Composable
-    override fun Content() {
-        MarketScreen()
-    }
-}
 
 @Composable
-fun MarketScreen(marketViewModel: MarketViewModel = viewModel()) {
+fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
 
     val uiState by marketViewModel.getUiState()
 

@@ -17,9 +17,6 @@ object Dependencies {
     const val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHiltVersion}"
     const val daggerHiltCompiler =
         "com.google.dagger:hilt-android-compiler:${Versions.daggerHiltVersion}"
-    const val navigationFragment =
-        "androidx.navigation:navigation-fragment-ktx:${Versions.navigationVersion}"
-    const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigationVersion}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val retrofitMoshiConverter =
         "com.squareup.retrofit2:converter-moshi:${Versions.retrofitVersion}"
@@ -29,7 +26,6 @@ object Dependencies {
     const val moshi = "com.squareup.moshi:moshi:${Versions.moshiVersion}"
     const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
     const val mpAndroidChart = "com.github.PhilJay:MPAndroidChart:${Versions.mpAndroidChartVersion}"
-    const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
     const val lottieCompose = "com.airbnb.android:lottie-compose:${Versions.lottieVersion}"
     const val truth = "com.google.truth:truth:${Versions.truthVersion}"
     const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"
@@ -53,4 +49,6 @@ object Dependencies {
     const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.composeVersion}"
     const val composeConstraintLayout =
         "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigationVersion}"
+    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
 }
