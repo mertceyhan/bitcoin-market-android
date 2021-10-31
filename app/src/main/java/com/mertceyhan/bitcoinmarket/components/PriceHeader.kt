@@ -67,20 +67,9 @@ fun PriceHeader(
 }
 
 @Preview(showBackground = true)
-@Composable
-private fun PriceHeaderPreview() {
-    PriceHeader(
-        modifier = Modifier.fillMaxWidth(),
-        currency = stringResource(id = R.string.bitcoin_btc),
-        price = "$46340.31",
-        changeRate = "-21.08%",
-        isChangeRatePositive = false
-    )
-}
-
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun PriceHeaderPreviewDark() {
+private fun PriceHeaderPreview() {
     PriceHeader(
         modifier = Modifier.fillMaxWidth(),
         currency = stringResource(id = R.string.bitcoin_btc),

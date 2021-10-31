@@ -56,7 +56,7 @@ fun MarketScreen(marketViewModel: MarketViewModel = viewModel()) {
                     TimeRangePicker(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 16.dp, top = 4.dp, end = 16.dp),
+                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
                         selectedTimeRange = viewState.getTimeRange()
                     ) { timeRange ->
                         marketViewModel.getMarketInformation(timeRange)

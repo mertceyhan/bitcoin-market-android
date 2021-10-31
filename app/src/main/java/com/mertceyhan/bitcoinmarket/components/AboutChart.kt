@@ -35,13 +35,8 @@ fun AboutChart(
 
 
 @Preview(showBackground = true)
-@Composable
-private fun AboutChartPreview() {
-    AboutChart(aboutChart = "Average USD market price across major bitcoin exchanges.")
-}
-
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun AboutChartPreviewDark() {
+private fun AboutChartPreview() {
     AboutChart(aboutChart = "Average USD market price across major bitcoin exchanges.")
 }

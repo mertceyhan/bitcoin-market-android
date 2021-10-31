@@ -415,19 +415,6 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <ViewStub
-            android:id="@+id/layoutError"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout="@layout/layout_error"
-            app:layoutViewState="@{layoutViewState}" />
-
-        <include
-            android:id="@+id/layoutLoading"
-            layout="@layout/layout_loading"
-            app:layoutViewState="@{layoutViewState}"
-            tools:visibility="gone" />
-
     </FrameLayout>
 
 </layout>
