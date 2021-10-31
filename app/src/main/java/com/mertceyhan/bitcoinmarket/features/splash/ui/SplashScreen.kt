@@ -16,17 +16,8 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.BaseComposeFragment
-
-class SplashFragment : BaseComposeFragment() {
-
-    @Composable
-    override fun Content() {
-        SplashScreen(navigationController = findNavController())
-    }
-}
+import com.mertceyhan.bitcoinmarket.navigation.Screen
 
 @Composable
 fun SplashScreen(
@@ -47,9 +38,7 @@ fun SplashScreen(
                 targetValue = targetValue,
                 animationSpec = tween(alphaAnimationDurationMillis),
                 finishedListener = {
-                    navigationController?.navigate(
-                        SplashFragmentDirections.actionSplashFragmentToBitcoinMarketFragment()
-                    )
+                    navigationController?.navigate(Screen.Market.route)
                 }
             )
 

@@ -1,12 +1,20 @@
 package com.mertceyhan.bitcoinmarket.features
 
-import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.BaseActivity
-import com.mertceyhan.databinding.ActivityMainBinding
+import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
+import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
+import com.mertceyhan.bitcoinmarket.navigation.BitcoinMarketApplication
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>() {
-
-    override fun getLayoutId(): Int = R.layout.activity_main
+class MainActivity : AppCompatActivity(){
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BitcoinMarketTheme {
+                BitcoinMarketApplication()
+            }
+        }
+    }
 }

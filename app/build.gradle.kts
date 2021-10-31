@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs")
     kotlin("android")
     kotlin("kapt")
 }
@@ -67,15 +66,12 @@ dependencies {
     implementation(Dependencies.constraintLayout)
     implementation(Dependencies.swipeRefreshLayout)
     implementation(Dependencies.daggerHilt)
-    implementation(Dependencies.navigationFragment)
-    implementation(Dependencies.navigationUI)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitMoshiConverter)
     implementation(Dependencies.okHttp)
     implementation(Dependencies.okHttpLoggingInterceptor)
     implementation(Dependencies.moshi)
     implementation(Dependencies.mpAndroidChart)
-    implementation(Dependencies.lottie)
     implementation(Dependencies.lottieCompose)
     implementation(Dependencies.coroutinesCore)
     implementation(Dependencies.composeMaterial)
@@ -85,6 +81,9 @@ dependencies {
     implementation(Dependencies.composeViewModel)
     implementation(Dependencies.composeLiveData)
     implementation(Dependencies.composeConstraintLayout)
+    implementation(Dependencies.composeNavigation)
+    implementation(Dependencies.hiltNavigationCompose)
+
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
