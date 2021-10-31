@@ -2,37 +2,37 @@
 
 package com.mertceyhan.bitcoinmarket.utils.extensions
 
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.core.ui.UiState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.transform
 
-fun <T, R> State<T>.map(transform: (T) -> R): State<R> {
+fun <T, R> UiState<T>.map(transform: (T) -> R): UiState<R> {
     return when (this) {
-        is State.Success -> State.Success(transform(data))
-        is State.Error -> State.Error(exception)
-        is State.Loading -> State.Loading
+        is UiState.Success -> UiState.Success(transform(data))
+        is UiState.Error -> UiState.Error(exception)
+        is UiState.Loading -> UiState.Loading
     }
 }
 
-fun <T> Flow<State<T>>.doOnSuccess(action: suspend (T) -> Unit): Flow<State<T>> =
+fun <T> Flow<UiState<T>>.doOnSuccess(action: suspend (T) -> Unit): Flow<UiState<T>> =
     transform { value ->
-        if (value is State.Success) {
+        if (value is UiState.Success) {
             action(value.data)
         }
         return@transform emit(value)
     }
 
-fun <T> Flow<State<T>>.doOnError(action: suspend (Throwable) -> Unit): Flow<State<T>> =
+fun <T> Flow<UiState<T>>.doOnError(action: suspend (Throwable) -> Unit): Flow<UiState<T>> =
     transform { value ->
-        if (value is State.Error) {
+        if (value is UiState.Error) {
             action(value.exception)
         }
         return@transform emit(value)
     }
 
-fun <T> Flow<State<T>>.doOnLoading(action: suspend () -> Unit): Flow<State<T>> =
+fun <T> Flow<UiState<T>>.doOnLoading(action: suspend () -> Unit): Flow<UiState<T>> =
     transform { value ->
-        if (value is State.Loading) {
+        if (value is UiState.Loading) {
             action()
         }
         return@transform emit(value)

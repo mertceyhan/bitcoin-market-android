@@ -1,21 +1,24 @@
 package com.mertceyhan.bitcoinmarket.features.market.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.google.common.truth.Truth.assertThat
-import com.mertceyhan.bitcoinmarket.core.data.State
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.MarketRemoteDataSource
+import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponse
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponseFactory
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
+import com.mertceyhan.bitcoinmarket.utils.`should be`
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.TestCoroutineDispatcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import java.net.SocketTimeoutException
 
+@ExperimentalCoroutinesApi
 class MarketRepositoryImpTest {
 
     @get:Rule
@@ -23,11 +26,13 @@ class MarketRepositoryImpTest {
 
     private lateinit var marketRepositoryImp: MarketRepositoryImp
 
+    private val ioDispatcher = TestCoroutineDispatcher()
+
     private val marketRemoteDataSource = mockk<MarketRemoteDataSource>()
 
     @Before
     fun setUp() {
-        marketRepositoryImp = MarketRepositoryImp(marketRemoteDataSource)
+        marketRepositoryImp = MarketRepositoryImp(ioDispatcher, marketRemoteDataSource)
     }
 
     @Test
@@ -40,18 +45,13 @@ class MarketRepositoryImpTest {
 
             coEvery {
                 marketRemoteDataSource.fetchMarketPriceChart(timespan.value)
-            } returns MarketPriceChartResponseFactory.getMockMarketPriceChartResponse()
+            } returns (MarketPriceChartResponseFactory.getMockMarketPriceChartResponse())
 
             // when
-            val result = marketRepositoryImp
-                .fetchMarketPriceChart(timespan.value)
-                .toList()
+            val result = marketRepositoryImp.fetchMarketPriceChart(timespan.value)
 
             // then
-            assertThat(result[0]).isSameInstanceAs(State.Loading)
-            assertThat(result[1]).isInstanceOf(State.Success::class.java)
-            assertThat((result[1] as State.Success).data).isEqualTo(marketPriceChartResponse)
-            assertThat(result.size).isEqualTo(2)
+            result `should be` marketPriceChartResponse
 
             coVerify(exactly = 1) { marketRemoteDataSource.fetchMarketPriceChart(timespan.value) }
         }
@@ -68,15 +68,16 @@ class MarketRepositoryImpTest {
             } throws socketTimeoutException
 
             // when
-            val result = marketRepositoryImp
-                .fetchMarketPriceChart(timespan.value)
-                .toList()
+            var result: MarketPriceChartResponse? = null
+
+            try {
+                result = marketRepositoryImp.fetchMarketPriceChart(timespan.value)
+            } catch (exception: Exception) {
+                exception `should be` socketTimeoutException
+            }
 
             // then
-            assertThat(result[0]).isSameInstanceAs(State.Loading)
-            assertThat(result[1]).isInstanceOf(State.Error::class.java)
-            assertThat((result[1] as State.Error).exception).isEqualTo(socketTimeoutException)
-            assertThat(result.size).isEqualTo(2)
+            result `should be` null
 
             coVerify(exactly = 1) { marketRemoteDataSource.fetchMarketPriceChart(timespan.value) }
         }

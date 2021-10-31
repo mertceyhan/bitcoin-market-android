@@ -2,7 +2,7 @@
 
 object Configs {
 
-    const val compileSdkVersion = 30
+    const val compileSdkVersion = 31
     const val buildToolsVersion = "30.0.3"
     const val applicationId = "com.mertceyhan.bitcoinmarket"
     const val minSdkVersion = 21

@@ -1,16 +1,17 @@
 package com.mertceyhan.bitcoinmarket.features.market.data
 
-import com.mertceyhan.bitcoinmarket.core.data.BaseRepository
-import com.mertceyhan.bitcoinmarket.core.data.State
+import com.mertceyhan.bitcoinmarket.core.di.IoDispatcher
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.MarketRemoteDataSource
-import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceChartResponse
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MarketRepositoryImp @Inject constructor(
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
     private val marketRemoteDataSource: MarketRemoteDataSource
-) : MarketRepository, BaseRepository() {
+) : MarketRepository {
 
-    override fun fetchMarketPriceChart(timespan: String): Flow<State<MarketPriceChartResponse>> =
-        apiCall { marketRemoteDataSource.fetchMarketPriceChart(timespan) }
+    override suspend fun fetchMarketPriceChart(timespan: String) = withContext(ioDispatcher) {
+        marketRemoteDataSource.fetchMarketPriceChart(timespan)
+    }
 }

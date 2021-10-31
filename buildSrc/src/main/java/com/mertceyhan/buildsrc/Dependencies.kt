@@ -30,6 +30,7 @@ object Dependencies {
     const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
     const val mpAndroidChart = "com.github.PhilJay:MPAndroidChart:${Versions.mpAndroidChartVersion}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottieVersion}"
+    const val lottieCompose = "com.airbnb.android:lottie-compose:${Versions.lottieVersion}"
     const val truth = "com.google.truth:truth:${Versions.truthVersion}"
     const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"
     const val robolectric = "org.robolectric:robolectric:${Versions.robolectricVersion}"
@@ -40,4 +41,16 @@ object Dependencies {
     const val coroutinesTest =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
     const val ktlint = "com.pinterest:ktlint:${Versions.ktlintVersion}"
+    const val composeMaterial = "androidx.compose.material:material:${Versions.composeVersion}"
+    const val composeAnimation = "androidx.compose.animation:animation:${Versions.composeVersion}"
+    const val composeTooling = "androidx.compose.ui:ui-tooling:${Versions.composeVersion}"
+    const val composeActivity =
+        "androidx.activity:activity-compose:${Versions.composeActivityVersion}"
+    const val composeViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeViewModelVersion}"
+    const val composeLiveData =
+        "androidx.compose.runtime:runtime-livedata:${Versions.composeVersion}"
+    const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.composeVersion}"
+    const val composeConstraintLayout =
+        "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
 }
