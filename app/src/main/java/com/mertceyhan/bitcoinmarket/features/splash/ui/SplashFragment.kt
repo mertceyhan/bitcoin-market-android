@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,44 +34,41 @@ fun SplashScreen(
     alphaAnimationTargetValue: Float = 0f,
     alphaAnimationDurationMillis: Int = 1000
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colors.background),
-        contentAlignment = Alignment.Center
-    ) {
-        var targetValue by remember { mutableStateOf(alphaAnimationTargetValue) }
+    Surface {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(colors.background),
+            contentAlignment = Alignment.Center
+        ) {
+            var targetValue by remember { mutableStateOf(alphaAnimationTargetValue) }
 
-        val alpha: Float by animateFloatAsState(
-            targetValue = targetValue,
-            animationSpec = tween(alphaAnimationDurationMillis),
-            finishedListener = {
-                navigationController?.navigate(
-                    SplashFragmentDirections.actionSplashFragmentToBitcoinMarketFragment()
-                )
+            val alpha: Float by animateFloatAsState(
+                targetValue = targetValue,
+                animationSpec = tween(alphaAnimationDurationMillis),
+                finishedListener = {
+                    navigationController?.navigate(
+                        SplashFragmentDirections.actionSplashFragmentToBitcoinMarketFragment()
+                    )
+                }
+            )
+
+            Image(
+                painter = painterResource(id = R.drawable.ic_app),
+                contentDescription = null,
+                modifier = Modifier.alpha(alpha)
+            )
+
+            LaunchedEffect(Unit) {
+                targetValue = 1f
             }
-        )
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_app),
-            contentDescription = null,
-            modifier = Modifier.alpha(alpha)
-        )
-
-        LaunchedEffect(Unit) {
-            targetValue = 1f
         }
     }
 }
 
 @Preview
-@Composable
-private fun PreviewSplashScreen() {
-    SplashScreen(alphaAnimationTargetValue = 1f)
-}
-
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-private fun PreviewSplashScreenDark() {
+private fun PreviewSplashScreen() {
     SplashScreen(alphaAnimationTargetValue = 1f)
 }

@@ -35,28 +35,8 @@ class MarketScreenViewState(
         MarketInformationTimespan.TIMESPAN_1YEAR -> TimeRange.ONE_YEAR
     }
 
-    fun isChangeStatusPositive(): Boolean =
+    fun isChangeStatusPositive() =
         marketInformation.changeStatus == MarketInformationChangeStatus.POSITIVE
-
-    fun getChangeStatusIcon(): Int =
-        if (marketInformation.changeStatus == MarketInformationChangeStatus.POSITIVE) {
-            R.drawable.ic_arrow_positive
-        } else {
-            R.drawable.ic_arrow_negative
-        }
-
-
-    fun isChip1dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_1DAYS
-
-    fun isChip7dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_7DAYS
-
-    fun isChip30dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_30DAYS
-
-    fun isChip60dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_60DAYS
-
-    fun isChip90dChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_90DAYS
-
-    fun isChip1yChecked() = marketInformation.timespan == MarketInformationTimespan.TIMESPAN_1YEAR
 
     @VisibleForTesting
     fun getColor(context: Context) =
