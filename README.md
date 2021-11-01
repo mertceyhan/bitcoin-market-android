@@ -19,7 +19,7 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 <img src="/arts/splash-screen.png" width="260"> &emsp;<img src="/arts/market-screen.png" width="260"> &emsp;<img src="/arts/market-screen-dark.png" width="260">
 
 ## Contribution  👏
-All contributions are welcome! 🥳 Feel free to jump to the issues and pick one for yourself! Please write a comment inside of the issue before you start working.
+All contributions are welcome! Feel free to jump to the issues and pick one for yourself! Please write a comment inside of the issue before you start working.
 
 ## Contributors 👏
 * [abdalla19977](https://github.com/abdalla19977)
