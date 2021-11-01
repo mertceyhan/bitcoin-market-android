@@ -1,6 +1,7 @@
 package com.mertceyhan.bitcoinmarket.features.market.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -29,6 +30,7 @@ import com.mertceyhan.bitcoinmarket.features.loading.LoadingScreen
 fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
 
     val uiState by marketViewModel.getUiState()
+
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = uiState is UiState.Loading)
 
     val scrollState = rememberScrollState()
@@ -44,6 +46,7 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
                     onRefresh = {
                         marketViewModel.getMarketInformation(viewState.getTimeRange())
                     },
+                    modifier = Modifier.fillMaxSize(),
                 ) {
                     Column(
                         modifier = Modifier
