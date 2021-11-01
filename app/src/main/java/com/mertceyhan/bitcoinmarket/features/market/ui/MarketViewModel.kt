@@ -24,7 +24,6 @@ class MarketViewModel @Inject constructor(
     fun getMarketInformation(timeRange: TimeRange) {
         viewModelScope.launch {
             uiState.value = UiState.Loading
-
             try {
                 uiState.value = UiState.Success(
                     MarketScreenViewState(
