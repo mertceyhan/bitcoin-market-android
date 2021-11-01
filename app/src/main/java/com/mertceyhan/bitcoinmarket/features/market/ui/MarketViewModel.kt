@@ -9,6 +9,7 @@ import com.mertceyhan.bitcoinmarket.core.ui.UiState
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,13 +19,13 @@ class MarketViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val uiState = mutableStateOf<UiState<MarketScreenViewState>>(UiState.Loading)
+    val isRefreshing = MutableStateFlow(uiState.value is UiState.Loading)
 
     fun getUiState(): State<UiState<MarketScreenViewState>> = uiState
 
     fun getMarketInformation(timeRange: TimeRange) {
         viewModelScope.launch {
             uiState.value = UiState.Loading
-
             try {
                 uiState.value = UiState.Success(
                     MarketScreenViewState(
