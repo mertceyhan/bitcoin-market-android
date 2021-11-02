@@ -17,7 +17,7 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 ## Screenshots 📷
 <img src="/arts/splash-screen.png" width="260"> &emsp;<img src="/arts/market-screen.png" width="260"> &emsp;<img src="/arts/market-screen-dark.png" width="260">
 
-## Contribution  👏
+## Contribution 🙌
 All contributions are welcome! Feel free to jump to the issues and pick one for yourself! Please write a comment inside of the issue before you start working.
 
 ## Contributors 👏
@@ -27,6 +27,7 @@ All contributions are welcome! Feel free to jump to the issues and pick one for 
 * [boranfrkn](https://github.com/boranfrkn)
 * [yagmurerdogan](https://github.com/yagmurerdogan)
 * [mustafayigitt](https://github.com/mustafayigitt)
+* [ozgurg](https://github.com/ozgurg)
 
 ## Credits 🙏
 * Thanks to [CoinMarketCap](https://play.google.com/store/apps/details?id=com.coinmarketcap.android&hl=en&gl=US) for the design
