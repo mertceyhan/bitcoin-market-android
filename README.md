@@ -13,7 +13,6 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 * [Lottie](https://github.com/airbnb/lottie-android)
 * [Truth](https://truth.dev/) & [Mockk](https://mockk.io/) - For more readable unit tests
-* [Lottie](https://github.com/airbnb/lottie-android)
 
 ## Screenshots 📷
 <img src="/arts/splash-screen.png" width="260"> &emsp;<img src="/arts/market-screen.png" width="260"> &emsp;<img src="/arts/market-screen-dark.png" width="260">
