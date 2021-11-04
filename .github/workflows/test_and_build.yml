@@ -1,4 +1,4 @@
-name: Android CI
+name: Test and Build
 
 on:
   pull_request:
@@ -24,7 +24,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run unit tests
-        run: ./gradlew test
+        run: ./gradlew testDebugUnitTest
 
       - name: Build with Gradle
         run: ./gradlew build
