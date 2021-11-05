@@ -38,6 +38,7 @@ fun SplashScreen(
                 targetValue = targetValue,
                 animationSpec = tween(alphaAnimationDurationMillis),
                 finishedListener = {
+                    navigationController?.popBackStack()
                     navigationController?.navigate(Screen.Market.route)
                 }
             )
