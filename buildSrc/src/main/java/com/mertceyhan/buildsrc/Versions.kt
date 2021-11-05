@@ -32,4 +32,5 @@ object Versions {
     const val kotlinCompilerExtensionVersion = "1.1.0-alpha06"
     const val composeConstraintLayoutVersion = "1.0.0-beta02"
     const val hiltNavigationCompose = "1.0.0-alpha03"
+    const val accompanistSwipeRefresh = "0.21.0-beta"
 }

@@ -13,27 +13,22 @@ Bitcoin Market app shows you the current Bitcoin market price and price chart of
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 * [Lottie](https://github.com/airbnb/lottie-android)
 * [Truth](https://truth.dev/) & [Mockk](https://mockk.io/) - For more readable unit tests
-* [Lottie](https://github.com/airbnb/lottie-android)
 
 ## Screenshots 📷
 <img src="/arts/splash-screen.png" width="260"> &emsp;<img src="/arts/market-screen.png" width="260"> &emsp;<img src="/arts/market-screen-dark.png" width="260">
 
-## Good points 🟢
-* Modern architecture with modern libraries
-* Readable and scalable codebase
-* Responsive layout design, vertical and horizontal usage
-* Good state handling
-* Unit tests
-* Dark theme
-
-## Improvement points 🔴
-* Local storage & Cache
-* Instrumentation tests
-* Multi-modular project structure
+## Contribution 🙌
+All contributions are welcome! Feel free to jump to the issues and pick one for yourself! Please write a comment inside of the issue before you start working.
 
 ## Contributors 👏
+* [abdalla19977](https://github.com/abdalla19977)
 * [masreplay](https://github.com/masreplay)
 * [okanaydin](https://github.com/okanaydin)
+* [boranfrkn](https://github.com/boranfrkn)
+* [yagmurerdogan](https://github.com/yagmurerdogan)
+* [mustafayigitt](https://github.com/mustafayigitt)
+* [ozgurg](https://github.com/ozgurg)
+* [Kardelio](https://github.com/Kardelio)
 
 ## Credits 🙏
 * Thanks to [CoinMarketCap](https://play.google.com/store/apps/details?id=com.coinmarketcap.android&hl=en&gl=US) for the design

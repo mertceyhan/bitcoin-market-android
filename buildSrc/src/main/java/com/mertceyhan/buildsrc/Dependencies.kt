@@ -51,4 +51,6 @@ object Dependencies {
         "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigationVersion}"
     const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
+    const val accompanistSwipeRefresh = "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanistSwipeRefresh}"
+
 }
