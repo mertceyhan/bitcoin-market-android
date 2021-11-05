@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
@@ -19,7 +20,10 @@ fun LoadingAnimation(modifier: Modifier = Modifier) {
     Card(modifier = modifier, elevation = 0.dp) {
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.anim_loading))
 
-        LottieAnimation(composition)
+        LottieAnimation(
+            composition = composition,
+            iterations = LottieConstants.IterateForever
+        )
     }
 }
 

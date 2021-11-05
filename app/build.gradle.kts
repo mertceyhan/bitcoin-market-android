@@ -83,7 +83,7 @@ dependencies {
     implementation(Dependencies.composeConstraintLayout)
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.hiltNavigationCompose)
-
+    implementation(Dependencies.accompanistSwipeRefresh)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
