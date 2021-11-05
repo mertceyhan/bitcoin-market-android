@@ -1,8 +1,6 @@
 package com.mertceyhan.bitcoinmarket.features.market.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -43,51 +41,6 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
             val viewState = (uiState as UiState.Success<MarketScreenViewState>).data
 
             Surface {
-                Column {
-                    PriceHeader(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                        currency = stringResource(id = R.string.bitcoin_btc),
-                        price = viewState.marketInformation.currentPrice,
-                        changeRate = viewState.marketInformation.changeRate,
-                        isChangeRatePositive = viewState.isChangeStatusPositive()
-                    )
-
-                    TimeRangePicker(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                        selectedTimeRange = viewState.getTimeRange()
-                    ) { timeRange ->
-                        marketViewModel.getMarketInformation(timeRange)
-                    }
-
-                    Chart(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 8.dp),
-                        lineDataSet = viewState.getLineDataSet(LocalContext.current),
-                    )
-
-                    Price(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                        openPrice = viewState.marketInformation.openPrice,
-                        closePrice = viewState.marketInformation.closePrice,
-                        highPrice = viewState.marketInformation.highPrice,
-                        lowPrice = viewState.marketInformation.lowPrice,
-                        averagePrice = viewState.marketInformation.averagePrice,
-                        changePrice = viewState.marketInformation.changePrice
-                    )
-
-                    AboutChart(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, top = 24.dp, end = 16.dp),
-                        aboutChart = viewState.marketInformation.aboutChart
-                    )
                 SwipeRefresh(
                     state = swipeRefreshState,
                     onRefresh = {
