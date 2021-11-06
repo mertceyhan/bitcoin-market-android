@@ -16,6 +16,8 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.navigation.Screen
 
@@ -38,6 +40,7 @@ fun SplashScreen(
                 targetValue = targetValue,
                 animationSpec = tween(alphaAnimationDurationMillis),
                 finishedListener = {
+                    navigationController?.popBackStack()
                     navigationController?.navigate(Screen.Market.route)
                 }
             )
