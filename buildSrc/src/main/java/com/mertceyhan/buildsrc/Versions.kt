@@ -7,8 +7,6 @@ object Versions {
     const val coreKtxVersion = "1.6.0"
     const val appCompatVersion = "1.3.1"
     const val materialVersion = "1.4.0"
-    const val constraintLayoutVersion = "2.1.1"
-    const val swipeRefreshLayoutVersion = "1.1.0"
     const val junit4Version = "4.13.2"
     const val junitExtensionsVersion = "1.1.3"
     const val espressoCoreVersion = "3.4.0"

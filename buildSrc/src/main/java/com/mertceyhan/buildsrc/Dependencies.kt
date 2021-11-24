@@ -6,10 +6,6 @@ object Dependencies {
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompatVersion}"
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
-    const val constraintLayout =
-        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
-    const val swipeRefreshLayout =
-        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayoutVersion}"
     const val junit4 = "junit:junit:${Versions.junit4Version}"
     const val junitExtensions = "androidx.test.ext:junit:${Versions.junitExtensionsVersion}"
     const val junitExtensionsKtx = "androidx.test.ext:junit-ktx:${Versions.junitExtensionsVersion}"
@@ -49,8 +45,11 @@ object Dependencies {
     const val composeUiTest = "androidx.compose.ui:ui-test-junit4:${Versions.composeVersion}"
     const val composeConstraintLayout =
         "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayoutVersion}"
-    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigationVersion}"
-    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
-    const val accompanistSwipeRefresh = "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanistSwipeRefresh}"
+    const val composeNavigation =
+        "androidx.navigation:navigation-compose:${Versions.composeNavigationVersion}"
+    const val hiltNavigationCompose =
+        "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
+    const val accompanistSwipeRefresh =
+        "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanistSwipeRefresh}"
 
 }

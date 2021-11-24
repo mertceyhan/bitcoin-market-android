@@ -63,8 +63,6 @@ dependencies {
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.appCompat)
     implementation(Dependencies.material)
-    implementation(Dependencies.constraintLayout)
-    implementation(Dependencies.swipeRefreshLayout)
     implementation(Dependencies.daggerHilt)
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitMoshiConverter)

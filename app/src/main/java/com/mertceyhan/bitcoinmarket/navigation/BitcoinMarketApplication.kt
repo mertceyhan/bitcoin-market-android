@@ -9,16 +9,16 @@ import com.mertceyhan.bitcoinmarket.features.splash.ui.SplashScreen
 
 
 @Composable
-fun BitcoinMarketApplication(){
+fun BitcoinMarketApplication() {
     val navigation = rememberNavController()
 
     NavHost(
         navController = navigation,
         startDestination = Screen.Splash.route
-    ){
+    ) {
         composable(
             route = Screen.Splash.route
-        ){
+        ) {
             SplashScreen(
                 navigationController = navigation
             )
@@ -26,7 +26,7 @@ fun BitcoinMarketApplication(){
 
         composable(
             route = Screen.Market.route
-        ){
+        ) {
             MarketScreen()
         }
     }
