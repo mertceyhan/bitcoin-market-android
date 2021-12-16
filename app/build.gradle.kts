@@ -82,6 +82,7 @@ dependencies {
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.hiltNavigationCompose)
     implementation(Dependencies.accompanistSwipeRefresh)
+    implementation(Dependencies.glance)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
