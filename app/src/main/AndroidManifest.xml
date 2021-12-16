@@ -21,7 +21,7 @@
         </activity>
 
         <receiver
-            android:name=".bitcoinmarket.widget.MarketWidgetReceiver"
+            android:name=".bitcoinmarket.widget.receiver.MarketWidgetReceiver"
             android:exported="true">
 
             <intent-filter>
