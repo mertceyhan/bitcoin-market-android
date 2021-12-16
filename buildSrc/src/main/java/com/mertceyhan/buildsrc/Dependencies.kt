@@ -51,5 +51,6 @@ object Dependencies {
         "androidx.hilt:hilt-navigation-compose:${Versions.hiltNavigationCompose}"
     const val accompanistSwipeRefresh =
         "com.google.accompanist:accompanist-swiperefresh:${Versions.accompanistSwipeRefresh}"
+    const val glance = "androidx.glance:glance:${Versions.glance}"
 
 }
