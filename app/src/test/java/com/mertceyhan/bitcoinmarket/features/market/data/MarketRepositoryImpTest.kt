@@ -104,6 +104,11 @@ class MarketRepositoryImpTest {
             val timespan = MarketInformationTimespan.TIMESPAN_1YEAR
             val socketTimeoutException = SocketTimeoutException()
 
+            every { preferencesDataSource.getLastMarketRequestTime(any()) } returns 1L
+            every { marketPriceChartMapper.mapToEntity(any(), any()) } returns mockk()
+            coEvery { marketLocalDataSource.insertMarketPriceChart(any()) } just Runs
+            coEvery { preferencesDataSource.setLastMarketRequestTime(any()) } just Runs
+
             coEvery {
                 marketRemoteDataSource.fetchMarketPriceChart(timespan.value)
             } throws socketTimeoutException
