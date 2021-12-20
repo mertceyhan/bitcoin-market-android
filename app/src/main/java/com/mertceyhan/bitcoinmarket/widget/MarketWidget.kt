@@ -11,22 +11,19 @@ import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.text.Text
-import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
 
 class MarketWidget : GlanceAppWidget() {
 
     @Composable
     override fun Content() {
-        BitcoinMarketTheme {
-            Box(
-                modifier = GlanceModifier.background(MaterialTheme.colors.surface)
-                    .clickable(actionRunCallback<MarketGlanceCallback>())
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(text = "Hello Btc")
-            }
+        Box(
+            modifier = GlanceModifier.background(MaterialTheme.colors.surface)
+                .clickable(actionRunCallback<MarketGlanceCallback>())
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "Hello Btc")
         }
     }
 }
