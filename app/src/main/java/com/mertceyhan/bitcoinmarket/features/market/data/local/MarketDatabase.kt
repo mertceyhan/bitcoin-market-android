@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDatabase.Companion.VERSION
-import com.mertceyhan.bitcoinmarket.features.market.data.local.entity.MarketPriceChartEntity
-import com.mertceyhan.bitcoinmarket.features.market.data.local.entity.MarketPriceValueTypeConverter
+import com.mertceyhan.bitcoinmarket.features.market.data.local.model.MarketPriceChartEntity
+import com.mertceyhan.bitcoinmarket.features.market.data.local.model.MarketPriceValueTypeConverter
 
 @Database(
     entities = [MarketPriceChartEntity::class],

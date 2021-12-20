@@ -1,6 +1,6 @@
 package com.mertceyhan.bitcoinmarket.features.market.data.local
 
-import com.mertceyhan.bitcoinmarket.features.market.data.local.entity.MarketPriceChartEntity
+import com.mertceyhan.bitcoinmarket.features.market.data.local.model.MarketPriceChartEntity
 import javax.inject.Inject
 
 class MarketLocalDataSource @Inject constructor(

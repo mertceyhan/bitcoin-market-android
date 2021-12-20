@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.features.market.data.local.entity
+package com.mertceyhan.bitcoinmarket.features.market.data.local.model
 
 import androidx.room.TypeConverter
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPriceValueResponse

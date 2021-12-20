@@ -5,6 +5,4 @@ import com.mertceyhan.bitcoinmarket.features.market.data.remote.respose.MarketPr
 interface MarketRepository {
 
     suspend fun fetchMarketPriceChart(timespan: String): MarketPriceChartResponse
-
-    fun isDataExpired(timeSpan: String): Boolean
 }

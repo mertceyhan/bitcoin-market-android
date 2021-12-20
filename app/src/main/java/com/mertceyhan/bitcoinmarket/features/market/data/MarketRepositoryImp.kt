@@ -1,5 +1,6 @@
 package com.mertceyhan.bitcoinmarket.features.market.data
 
+import androidx.annotation.VisibleForTesting
 import com.mertceyhan.bitcoinmarket.core.di.IoDispatcher
 import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketLocalDataSource
 import com.mertceyhan.bitcoinmarket.features.market.data.local.PreferencesDataSource
@@ -14,7 +15,7 @@ class MarketRepositoryImp @Inject constructor(
     private val marketRemoteDataSource: MarketRemoteDataSource,
     private val marketLocalDataSource: MarketLocalDataSource,
     private val preferencesDataSource: PreferencesDataSource,
-    private val dataMapper: DataMapper
+    private val marketPriceChartMapper: MarketPriceChartMapper
 ) : MarketRepository {
 
     override suspend fun fetchMarketPriceChart(timespan: String) = withContext(ioDispatcher) {
@@ -25,7 +26,8 @@ class MarketRepositoryImp @Inject constructor(
         }
     }
 
-    private suspend fun fetchDataFromRemote(timeSpan: String): MarketPriceChartResponse =
+    @VisibleForTesting
+    suspend fun fetchDataFromRemote(timeSpan: String): MarketPriceChartResponse =
         marketRemoteDataSource.fetchMarketPriceChart(timeSpan).also { response ->
             insertMarketPriceChart(
                 timeSpan = timeSpan,
@@ -33,23 +35,25 @@ class MarketRepositoryImp @Inject constructor(
             )
         }
 
-    private suspend fun fetchDataFromLocal(timeSpan: String): MarketPriceChartResponse =
+    @VisibleForTesting
+    suspend fun fetchDataFromLocal(timeSpan: String): MarketPriceChartResponse =
         marketLocalDataSource.fetchMarketPriceChart(timeSpan)?.let { marketEntity ->
-            dataMapper.mapToResponse(marketEntity)
+            marketPriceChartMapper.mapToResponse(marketEntity)
         } ?: fetchDataFromRemote(timeSpan)
 
-
-    private suspend fun insertMarketPriceChart(
+    @VisibleForTesting
+    suspend fun insertMarketPriceChart(
         timeSpan: String,
         marketPriceChartResponse: MarketPriceChartResponse
     ) = marketLocalDataSource.insertMarketPriceChart(
-        dataMapper.mapToEntity(
+        marketPriceChartMapper.mapToEntity(
             timeSpan = timeSpan,
             response = marketPriceChartResponse
         )
     ).also { preferencesDataSource.setLastMarketRequestTime(timeSpan) }
 
-    override fun isDataExpired(timeSpan: String): Boolean =
+    @VisibleForTesting
+    fun isDataExpired(timeSpan: String): Boolean =
         System.currentTimeMillis() - preferencesDataSource.getLastMarketRequestTime(timeSpan) > EXPIRED_TIME
 
     companion object {

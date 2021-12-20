@@ -7,12 +7,12 @@ class PreferencesDataSource @Inject constructor(
     private val sharedPreferences: SharedPreferences
 ) {
 
-    fun getLastMarketRequestTime(key: String): Long =
-        sharedPreferences.getLong(key, 0L)
+    fun getLastMarketRequestTime(timeSpan: String): Long =
+        sharedPreferences.getLong(timeSpan, 0L)
 
-    fun setLastMarketRequestTime(key: String) {
+    fun setLastMarketRequestTime(timeSpan: String) {
         sharedPreferences.edit().apply {
-            putLong(key, System.currentTimeMillis())
+            putLong(timeSpan, System.currentTimeMillis())
             apply()
         }
     }

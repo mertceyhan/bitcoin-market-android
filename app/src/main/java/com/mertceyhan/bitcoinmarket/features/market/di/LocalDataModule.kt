@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object LocalDataModule {
 
     @Provides
     @Singleton
@@ -28,6 +28,6 @@ object AppModule {
     fun provideSharedPreferences(
         @ApplicationContext context: Context
     ): SharedPreferences = context.getSharedPreferences(
-        "asd", Context.MODE_PRIVATE
+        "MarketPreferences", Context.MODE_PRIVATE
     )
 }
