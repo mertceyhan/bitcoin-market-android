@@ -36,12 +36,14 @@ class MarketPriceChartMapperTest {
         //when
         val result = marketPriceChartMapper.mapToEntity(
             timeSpan = timeSpan,
-            response = marketPriceChartResponse
+            response = marketPriceChartResponse,
+            lastFetchTime = 1L
         )
 
         //then
         assertThat(result).isInstanceOf(MarketPriceChartEntity::class.java)
         result.timeSpan `should be` timeSpan
+        result.lastFetchTime `should be` 1L
         result.values `should be` values
     }
 
@@ -57,7 +59,8 @@ class MarketPriceChartMapperTest {
             status = "",
             values = values,
             unit = "",
-            timeSpan = timeSpan
+            timeSpan = timeSpan,
+            lastFetchTime = 1L
         )
 
         //when

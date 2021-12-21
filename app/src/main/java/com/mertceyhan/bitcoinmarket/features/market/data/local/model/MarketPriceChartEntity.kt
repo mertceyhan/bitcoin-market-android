@@ -13,6 +13,8 @@ data class MarketPriceChartEntity(
     @PrimaryKey
     @field:Json(name = "timespan")
     val timeSpan: String,
+    @field:Json(name = "lastFetchTime")
+    val lastFetchTime: Long,
     @field:Json(name = "description")
     val description: String,
     @field:Json(name = "name")
@@ -24,5 +26,5 @@ data class MarketPriceChartEntity(
     @field:Json(name = "unit")
     val unit: String,
     @field:Json(name = "values")
-    val values: List<MarketPriceValueResponse>
+    val values: List<MarketPriceValueResponse>,
 )
