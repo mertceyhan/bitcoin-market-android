@@ -2,6 +2,8 @@ package com.mertceyhan.bitcoinmarket.features.market.di
 
 import com.mertceyhan.bitcoinmarket.features.market.data.MarketRepository
 import com.mertceyhan.bitcoinmarket.features.market.data.MarketRepositoryImp
+import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDao
+import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDatabase
 import com.mertceyhan.bitcoinmarket.features.market.data.remote.MarketService
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCaseImpl
@@ -32,5 +34,11 @@ abstract class MarketModule {
         fun provideMarketService(
             retrofit: Retrofit
         ): MarketService = retrofit.create(MarketService::class.java)
+
+        @Provides
+        fun provideMarketDao(
+            marketDatabase: MarketDatabase
+        ): MarketDao = marketDatabase.getMarketDao()
+
     }
 }

@@ -82,9 +82,11 @@ dependencies {
     implementation(Dependencies.composeNavigation)
     implementation(Dependencies.hiltNavigationCompose)
     implementation(Dependencies.accompanistSwipeRefresh)
+    implementation(Dependencies.roomKtx)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)
+    kapt(Dependencies.roomCompiler)
 
     testImplementation(Dependencies.junit4)
     testImplementation(Dependencies.junitExtensionsKtx)
