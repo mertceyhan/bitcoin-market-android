@@ -26,10 +26,10 @@ class MarketWidget : GlanceAppWidget() {
             modifier = GlanceModifier
                 .fillMaxSize()
                 .background(color = Color.DarkGray)
-                .padding(8.dp)
+                .padding(4.dp)
         ) {
             Row(
-                modifier = GlanceModifier.padding(top = 10.dp).fillMaxWidth()
+                modifier = GlanceModifier.fillMaxWidth()
             ) {
                 Image(
                     provider = ImageProvider(R.drawable.ic_btc_flat),
@@ -42,7 +42,12 @@ class MarketWidget : GlanceAppWidget() {
             }
             Text(
                 text = context.getString(R.string.bitcoin_label),
-                modifier = GlanceModifier.fillMaxWidth(),
+                modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
+                style = TextStyle(fontWeight = FontWeight.Bold),
+            )
+            Text(
+                text = "$48.823,08",
+                modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
                 style = TextStyle(fontWeight = FontWeight.Bold),
             )
         }
