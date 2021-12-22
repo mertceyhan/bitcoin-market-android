@@ -12,7 +12,6 @@ import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
 
 class MarketWidget : GlanceAppWidget() {
 
