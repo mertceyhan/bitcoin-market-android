@@ -1,29 +1,50 @@
 package com.mertceyhan.bitcoinmarket.widget
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.glance.GlanceModifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.glance.*
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.action.actionRunCallback
-import androidx.glance.background
-import androidx.glance.layout.Alignment
-import androidx.glance.layout.Box
-import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.*
+import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
+import androidx.glance.text.TextStyle
+import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
 
 class MarketWidget : GlanceAppWidget() {
 
     @Composable
     override fun Content() {
-        Box(
-            modifier = GlanceModifier.background(MaterialTheme.colors.surface)
-                .clickable(actionRunCallback<MarketGlanceCallback>())
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
+
+        val context = LocalContext.current
+
+        Column(
+            modifier = GlanceModifier
+                .fillMaxSize()
+                .background(color = Color.DarkGray)
+                .padding(8.dp)
         ) {
-            Text(text = "Hello Btc")
+            Row(
+                modifier = GlanceModifier.padding(top = 10.dp).fillMaxWidth()
+            ) {
+                Image(
+                    provider = ImageProvider(R.drawable.ic_btc_flat),
+                    contentDescription = "btc"
+                )
+                Image(
+                    provider = ImageProvider(R.drawable.ic_refresh),
+                    contentDescription = "refresh",
+                )
+            }
+            Text(
+                text = context.getString(R.string.bitcoin_label),
+                modifier = GlanceModifier.fillMaxWidth(),
+                style = TextStyle(fontWeight = FontWeight.Bold),
+            )
         }
     }
 }
