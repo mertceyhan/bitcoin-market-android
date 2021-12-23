@@ -21,7 +21,7 @@ class MarketWidget : GlanceAppWidget() {
 
         Column(
             modifier = GlanceModifier
-                .fillMaxWidth()
+                .width(170.dp).height(130.dp)
                 .background(ImageProvider(R.drawable.background_widget))
                 .padding(8.dp)
         ) {
