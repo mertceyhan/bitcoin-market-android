@@ -25,6 +25,12 @@ class MarketWidget : GlanceAppWidget() {
             ImageProvider(R.drawable.background_widget_light)
         }
 
+        val refreshDrawable = if (context.darkModeEnabled()) {
+            ImageProvider(R.drawable.ic_refresh_white)
+        } else {
+            ImageProvider(R.drawable.ic_refresh_black)
+        }
+
         BitcoinMarketTheme(darkTheme = context.darkModeEnabled()) {
             Column(
                 modifier = GlanceModifier
@@ -44,7 +50,7 @@ class MarketWidget : GlanceAppWidget() {
                         modifier = GlanceModifier.fillMaxWidth()
                     ) {
                         Image(
-                            provider = ImageProvider(R.drawable.ic_refresh),
+                            provider = refreshDrawable,
                             contentDescription = "refresh"
                         )
                     }
