@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.glance.*
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.layout.*
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
@@ -22,7 +23,7 @@ class MarketWidget : GlanceAppWidget() {
             modifier = GlanceModifier
                 .fillMaxWidth()
                 .background(color = Color.DarkGray)
-                .padding(4.dp)
+                .padding(8.dp)
         ) {
             Row(
                 modifier = GlanceModifier.fillMaxWidth()
@@ -31,10 +32,12 @@ class MarketWidget : GlanceAppWidget() {
                     provider = ImageProvider(R.drawable.ic_btc_flat),
                     contentDescription = "btc"
                 )
-                Image(
-                    provider = ImageProvider(R.drawable.ic_refresh),
-                    contentDescription = "refresh",
-                )
+                Row(horizontalAlignment = Alignment.End, modifier = GlanceModifier.fillMaxWidth()) {
+                    Image(
+                        provider = ImageProvider(R.drawable.ic_refresh),
+                        contentDescription = "refresh"
+                    )
+                }
             }
             Text(
                 text = context.getString(R.string.bitcoin_label),
