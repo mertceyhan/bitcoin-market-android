@@ -61,7 +61,7 @@ fun BitcoinWidgetBody() {
     Text(
         text = "$48.823,08",
         modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
-        style = TextStyle(fontWeight = FontWeight.Bold),
+        style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp),
     )
 }
 
@@ -80,7 +80,7 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
     }
 
     Row(
-        modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
+        modifier = GlanceModifier.fillMaxWidth().padding(top = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Row(
