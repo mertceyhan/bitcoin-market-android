@@ -10,41 +10,24 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
 
 @Composable
 fun BitcoinWidget() {
 
-    val context = LocalContext.current
-
-    val backgroundDrawable = if (context.darkModeEnabled()) {
-        ImageProvider(R.drawable.background_widget_dark)
-    } else {
-        ImageProvider(R.drawable.background_widget_light)
-    }
-
     Column(
         modifier = GlanceModifier
             .width(170.dp).height(130.dp)
-            .background(backgroundDrawable)
+            .background(ImageProvider(R.drawable.background_widget))
             .padding(8.dp)
     ) {
         BitcoinWidgetHeader()
         BitcoinWidgetBody()
-        BitcoinFooterBody(true, "0,64%")
+        BitcoinFooterBody(true, "0.64%")
     }
 }
 
 @Composable
 fun BitcoinWidgetHeader() {
-
-    val context = LocalContext.current
-
-    val refreshDrawable = if (context.darkModeEnabled()) {
-        ImageProvider(R.drawable.ic_refresh_white)
-    } else {
-        ImageProvider(R.drawable.ic_refresh_black)
-    }
 
     Row(
         modifier = GlanceModifier.fillMaxWidth()
@@ -58,7 +41,7 @@ fun BitcoinWidgetHeader() {
             modifier = GlanceModifier.fillMaxWidth()
         ) {
             Image(
-                provider = refreshDrawable,
+                provider = ImageProvider(R.drawable.ic_refresh),
                 contentDescription = "refresh"
             )
         }
