@@ -21,8 +21,8 @@ class MarketWidget : GlanceAppWidget() {
 
         Column(
             modifier = GlanceModifier
-                .fillMaxWidth()
-                .background(color = Color.DarkGray)
+                .fillMaxSize()
+                .background(ImageProvider(R.drawable.background_widget))
                 .padding(8.dp)
         ) {
             Row(
@@ -32,7 +32,10 @@ class MarketWidget : GlanceAppWidget() {
                     provider = ImageProvider(R.drawable.ic_btc_flat),
                     contentDescription = "btc"
                 )
-                Row(horizontalAlignment = Alignment.End, modifier = GlanceModifier.fillMaxWidth()) {
+                Row(
+                    horizontalAlignment = Alignment.End,
+                    modifier = GlanceModifier.fillMaxWidth()
+                ) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_refresh),
                         contentDescription = "refresh"
@@ -50,5 +53,6 @@ class MarketWidget : GlanceAppWidget() {
                 style = TextStyle(fontWeight = FontWeight.Bold),
             )
         }
+
     }
 }
