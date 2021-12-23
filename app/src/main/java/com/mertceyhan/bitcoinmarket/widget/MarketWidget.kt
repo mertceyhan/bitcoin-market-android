@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.glance.*
 import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.cornerRadius
 import androidx.glance.layout.*
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
@@ -20,11 +19,17 @@ class MarketWidget : GlanceAppWidget() {
 
         val context = LocalContext.current
 
+        val backgroundDrawable = if (context.darkModeEnabled()) {
+            ImageProvider(R.drawable.background_widget_dark)
+        } else {
+            ImageProvider(R.drawable.background_widget_light)
+        }
+
         BitcoinMarketTheme(darkTheme = context.darkModeEnabled()) {
             Column(
                 modifier = GlanceModifier
                     .width(170.dp).height(130.dp)
-                    .background(ImageProvider(R.drawable.background_widget))
+                    .background(backgroundDrawable)
                     .padding(8.dp)
             ) {
                 Row(
