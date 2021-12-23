@@ -20,7 +20,7 @@ class MarketWidget : GlanceAppWidget() {
 
         Column(
             modifier = GlanceModifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .background(color = Color.DarkGray)
                 .padding(4.dp)
         ) {
