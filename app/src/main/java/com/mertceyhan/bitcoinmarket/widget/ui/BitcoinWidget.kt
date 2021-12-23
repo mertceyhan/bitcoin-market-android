@@ -85,8 +85,6 @@ fun BitcoinWidgetBody() {
 @Composable
 fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
 
-    val context = LocalContext.current
-
     val rateBackground = if (isChangeRatePositive) {
         R.drawable.background_widget_positive_rate
     } else {
@@ -99,7 +97,8 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
     }
 
     Row(
-        modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp)
+        modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Row(
             modifier = GlanceModifier.background(rateBackground).padding(4.dp),
@@ -117,6 +116,16 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
                     color = ColorProvider(R.color.white)
                 ),
                 modifier = GlanceModifier.padding(start = 4.dp)
+            )
+        }
+        Row(
+            horizontalAlignment = Alignment.End,
+            modifier = GlanceModifier.fillMaxWidth()
+        ) {
+            Image(
+                provider = ImageProvider(R.drawable.ic_app),
+                contentDescription = "refresh",
+                modifier = GlanceModifier.size(24.dp, 24.dp)
             )
         }
     }
