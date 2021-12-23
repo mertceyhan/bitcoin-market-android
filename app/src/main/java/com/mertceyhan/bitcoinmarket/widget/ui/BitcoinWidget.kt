@@ -1,17 +1,20 @@
 package com.mertceyhan.bitcoinmarket.widget.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.glance.*
 import androidx.glance.layout.*
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.core.ui.theme.typography
 import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
 
 @Composable
-fun BitcoinWidget(){
+fun BitcoinWidget() {
 
     val context = LocalContext.current
 
@@ -29,6 +32,7 @@ fun BitcoinWidget(){
     ) {
         BitcoinWidgetHeader()
         BitcoinWidgetBody()
+        BitcoinFooterBody(true, "0,64%")
     }
 }
 
@@ -77,4 +81,39 @@ fun BitcoinWidgetBody() {
         modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
         style = TextStyle(fontWeight = FontWeight.Bold),
     )
+}
+
+@Composable
+fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
+
+    val rateBackground = if (isChangeRatePositive) {
+        R.drawable.background_widget_positive_rate
+    } else {
+        R.drawable.background_widget_negative_rate
+    }
+    val rateArrow = if (isChangeRatePositive) {
+        R.drawable.ic_arrow_positive_white
+    } else {
+        R.drawable.ic_arrow_negative_white
+    }
+
+    Row(
+        modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp)
+    ) {
+        Row(
+            modifier = GlanceModifier.background(rateBackground).padding(4.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                provider = ImageProvider(rateArrow),
+                contentDescription = "refresh",
+                modifier = GlanceModifier.size(11.dp, 11.dp)
+            )
+            Text(
+                text = changeRate,
+                style = TextStyle(fontSize = 12.sp),
+                modifier = GlanceModifier.padding(start = 4.dp)
+            )
+        }
+    }
 }
