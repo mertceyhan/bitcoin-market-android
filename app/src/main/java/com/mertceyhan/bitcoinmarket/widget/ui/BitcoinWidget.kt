@@ -1,7 +1,6 @@
 package com.mertceyhan.bitcoinmarket.widget.ui
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
@@ -9,8 +8,8 @@ import androidx.glance.layout.*
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.theme.typography
 import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
 
 @Composable
@@ -86,6 +85,8 @@ fun BitcoinWidgetBody() {
 @Composable
 fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
 
+    val context = LocalContext.current
+
     val rateBackground = if (isChangeRatePositive) {
         R.drawable.background_widget_positive_rate
     } else {
@@ -111,7 +112,10 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
             )
             Text(
                 text = changeRate,
-                style = TextStyle(fontSize = 12.sp),
+                style = TextStyle(
+                    fontSize = 12.sp,
+                    color = ColorProvider(R.color.white)
+                ),
                 modifier = GlanceModifier.padding(start = 4.dp)
             )
         }
