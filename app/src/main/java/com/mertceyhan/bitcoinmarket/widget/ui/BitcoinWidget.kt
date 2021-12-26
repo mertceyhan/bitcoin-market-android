@@ -13,6 +13,7 @@ import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
+import com.mertceyhan.bitcoinmarket.widget.callback.MarketRefreshCallback
 
 @Composable
 fun BitcoinWidget() {
@@ -46,7 +47,8 @@ fun BitcoinWidgetHeader() {
         ) {
             Image(
                 provider = ImageProvider(R.drawable.ic_refresh),
-                contentDescription = "refresh"
+                contentDescription = "refresh",
+                modifier = GlanceModifier.clickable(actionRunCallback<MarketRefreshCallback>())
             )
         }
     }
