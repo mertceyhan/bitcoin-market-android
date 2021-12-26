@@ -12,6 +12,9 @@ class MarketGlanceCallback : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        // no-op
+        val packageName = context.packageName
+        val packageManager = context.packageManager
+        val launchIntent = packageManager.getLaunchIntentForPackage(packageName)
+        context.startActivity(launchIntent)
     }
 }
