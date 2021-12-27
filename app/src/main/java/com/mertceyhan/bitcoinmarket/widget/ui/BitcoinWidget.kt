@@ -27,7 +27,7 @@ fun BitcoinWidget() {
     ) {
         BitcoinWidgetHeader()
         BitcoinWidgetBody()
-        BitcoinFooterBody(true, "0.64%")
+        BitcoinFooterBody(true, "0.65%")
     }
 }
 
