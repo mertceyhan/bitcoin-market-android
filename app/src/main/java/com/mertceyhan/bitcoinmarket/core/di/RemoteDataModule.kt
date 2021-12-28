@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.core.data.remote
+package com.mertceyhan.bitcoinmarket.core.di
 
 import dagger.Module
 import dagger.Provides

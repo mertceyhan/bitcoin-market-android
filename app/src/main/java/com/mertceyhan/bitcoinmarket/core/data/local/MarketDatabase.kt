@@ -1,9 +1,10 @@
-package com.mertceyhan.bitcoinmarket.features.market.data.local
+package com.mertceyhan.bitcoinmarket.core.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDatabase.Companion.VERSION
+import com.mertceyhan.bitcoinmarket.core.data.local.MarketDatabase.Companion.VERSION
+import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDao
 import com.mertceyhan.bitcoinmarket.features.market.data.local.model.MarketPriceChartEntity
 import com.mertceyhan.bitcoinmarket.features.market.data.local.model.MarketPriceValueTypeConverter
 
