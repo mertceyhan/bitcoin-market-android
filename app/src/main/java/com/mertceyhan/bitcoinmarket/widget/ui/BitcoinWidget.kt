@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.*
+import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.layout.*
@@ -12,7 +13,7 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
+import com.mertceyhan.bitcoinmarket.features.MainActivity
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketRefreshCallback
 
 @Composable
@@ -22,7 +23,7 @@ fun BitcoinWidget(currentPrice: String?, changeRate: String?, isChangeRatePositi
         modifier = GlanceModifier
             .width(170.dp).height(130.dp)
             .background(ImageProvider(R.drawable.background_widget))
-            .clickable(actionRunCallback<MarketGlanceCallback>())
+            .clickable(actionStartActivity(activity = MainActivity::class.java))
             .padding(8.dp)
     ) {
         BitcoinWidgetHeader()
