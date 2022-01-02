@@ -15,4 +15,6 @@ data class MarketInformation(
     val aboutChart: String,
     val timespan: MarketInformationTimespan,
     val chartEntries: List<Entry>
-)
+) {
+    val isChangeRatePositive: Boolean = changeStatus == MarketInformationChangeStatus.POSITIVE
+}

@@ -16,7 +16,7 @@ import com.mertceyhan.bitcoinmarket.widget.callback.MarketGlanceCallback
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketRefreshCallback
 
 @Composable
-fun BitcoinWidget() {
+fun BitcoinWidget(currentPrice: String?, changeRate: String?, isChangeRatePositive: Boolean?) {
 
     Column(
         modifier = GlanceModifier
@@ -26,8 +26,8 @@ fun BitcoinWidget() {
             .padding(8.dp)
     ) {
         BitcoinWidgetHeader()
-        BitcoinWidgetBody()
-        BitcoinFooterBody(true, "0.65%")
+        BitcoinWidgetBody(currentPrice)
+        BitcoinFooterBody(isChangeRatePositive ?: false, changeRate)
     }
 }
 
@@ -55,7 +55,7 @@ fun BitcoinWidgetHeader() {
 }
 
 @Composable
-fun BitcoinWidgetBody() {
+fun BitcoinWidgetBody(currentPrice: String?) {
 
     val context = LocalContext.current
 
@@ -65,14 +65,16 @@ fun BitcoinWidgetBody() {
         style = TextStyle(fontWeight = FontWeight.Bold),
     )
     Text(
-        text = "$48.823,08",
+        text = currentPrice ?: context.getString(R.string.fetch_alert_label),
         modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
         style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp),
     )
 }
 
 @Composable
-fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
+fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String?) {
+
+    val context = LocalContext.current
 
     val rateBackground = if (isChangeRatePositive) {
         R.drawable.background_widget_positive_rate
@@ -99,7 +101,7 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
                 modifier = GlanceModifier.size(11.dp, 11.dp)
             )
             Text(
-                text = changeRate,
+                text = changeRate ?: context.getString(R.string.empty_rate),
                 style = TextStyle(
                     fontSize = 12.sp,
                     color = ColorProvider(R.color.white)
