@@ -1,8 +1,8 @@
-package com.mertceyhan.bitcoinmarket.features.market.di
+package com.mertceyhan.bitcoinmarket.core.di
 
 import android.content.Context
 import androidx.room.Room
-import com.mertceyhan.bitcoinmarket.features.market.data.local.MarketDatabase
+import com.mertceyhan.bitcoinmarket.core.data.local.MarketDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
