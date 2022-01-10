@@ -35,12 +35,14 @@ fun BitcoinWidget(currentPrice: String?, changeRate: String?, isChangeRatePositi
 @Composable
 fun BitcoinWidgetHeader() {
 
+    val context = LocalContext.current
+
     Row(
         modifier = GlanceModifier.fillMaxWidth()
     ) {
         Image(
             provider = ImageProvider(R.drawable.ic_btc_flat),
-            contentDescription = "btc"
+            contentDescription = context.getString(R.string.btc_description)
         )
         Row(
             horizontalAlignment = Alignment.End,
@@ -48,7 +50,7 @@ fun BitcoinWidgetHeader() {
         ) {
             Image(
                 provider = ImageProvider(R.drawable.ic_refresh),
-                contentDescription = "refresh",
+                contentDescription = context.getString(R.string.refresh_description),
                 modifier = GlanceModifier.clickable(actionRunCallback<MarketRefreshCallback>())
             )
         }
@@ -98,7 +100,7 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String?) {
         ) {
             Image(
                 provider = ImageProvider(rateArrow),
-                contentDescription = "refresh",
+                contentDescription = context.getString(R.string.refresh_description),
                 modifier = GlanceModifier.size(11.dp, 11.dp)
             )
             Text(
@@ -116,7 +118,7 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String?) {
         ) {
             Image(
                 provider = ImageProvider(R.drawable.ic_app),
-                contentDescription = "refresh",
+                contentDescription = context.getString(R.string.refresh_description),
                 modifier = GlanceModifier.size(24.dp, 24.dp)
             )
         }
