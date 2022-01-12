@@ -10,6 +10,7 @@ import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.state.PreferencesGlanceStateDefinition
+import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationChangeStatus
 import com.mertceyhan.bitcoinmarket.features.market.domain.model.MarketInformationTimespan
 import com.mertceyhan.bitcoinmarket.features.market.domain.usecase.MarketInformationUseCase
 import com.mertceyhan.bitcoinmarket.widget.MarketWidget
@@ -45,7 +46,8 @@ class MarketWidgetReceiver : GlanceAppWidgetReceiver() {
                             marketInformation.currentPrice
                         this[changeRate] =
                             marketInformation.changeRate
-                        this[isChangeRatePositive] = marketInformation.isChangeRatePositive
+                        this[isChangeRatePositive] =
+                            marketInformation.changeStatus == MarketInformationChangeStatus.POSITIVE
                     }
                 }
                 glanceAppWidget.update(context, it)

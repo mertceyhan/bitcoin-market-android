@@ -14,10 +14,11 @@ import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.features.MainActivity
+import com.mertceyhan.bitcoinmarket.widget.BitcoinWidgetUiState
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketRefreshCallback
 
 @Composable
-fun BitcoinWidget(currentPrice: String?, changeRate: String?, isChangeRatePositive: Boolean?) {
+fun BitcoinWidget(bitcoinWidgetUiState: BitcoinWidgetUiState) {
 
     Column(
         modifier = GlanceModifier
@@ -27,8 +28,11 @@ fun BitcoinWidget(currentPrice: String?, changeRate: String?, isChangeRatePositi
             .padding(8.dp)
     ) {
         BitcoinWidgetHeader()
-        BitcoinWidgetBody(currentPrice)
-        BitcoinFooterBody(isChangeRatePositive ?: false, changeRate)
+        BitcoinWidgetBody(bitcoinWidgetUiState.currentPrice)
+        BitcoinFooterBody(
+            bitcoinWidgetUiState.isChangeRatePositive,
+            bitcoinWidgetUiState.changeRate
+        )
     }
 }
 
@@ -58,7 +62,7 @@ fun BitcoinWidgetHeader() {
 }
 
 @Composable
-fun BitcoinWidgetBody(currentPrice: String?) {
+fun BitcoinWidgetBody(currentPrice: String) {
 
     val context = LocalContext.current
 
@@ -68,14 +72,14 @@ fun BitcoinWidgetBody(currentPrice: String?) {
         style = TextStyle(fontWeight = FontWeight.Bold),
     )
     Text(
-        text = currentPrice ?: context.getString(R.string.fetch_alert_label),
+        text = currentPrice,
         modifier = GlanceModifier.fillMaxWidth().padding(top = 8.dp),
         style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 16.sp),
     )
 }
 
 @Composable
-fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String?) {
+fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
 
     val context = LocalContext.current
 
@@ -104,7 +108,7 @@ fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String?) {
                 modifier = GlanceModifier.size(11.dp, 11.dp)
             )
             Text(
-                text = changeRate ?: context.getString(R.string.empty_rate),
+                text = changeRate,
                 style = TextStyle(
                     fontSize = 12.sp,
                     color = ColorProvider(R.color.white)
