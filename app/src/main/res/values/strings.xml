@@ -19,4 +19,9 @@
     <string name="short_sixty_days">60d</string>
     <string name="short_ninety_days">90d</string>
     <string name="short_one_year">1y</string>
+    <string name="bitcoin_label">Bitcoin</string>
+    <string name="fetch_alert_label">Fetching</string>
+    <string name="empty_rate">--</string>
+    <string name="btc_description">Bitcoin</string>
+    <string name="refresh_description">Refresh</string>
 </resources>
