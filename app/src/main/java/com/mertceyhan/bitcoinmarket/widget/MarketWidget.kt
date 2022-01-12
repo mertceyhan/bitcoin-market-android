@@ -1,6 +1,5 @@
 package com.mertceyhan.bitcoinmarket.widget
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.datastore.preferences.core.Preferences
 import androidx.glance.*
@@ -12,6 +11,7 @@ import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
 import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
 import com.mertceyhan.bitcoinmarket.widget.receiver.MarketWidgetReceiver
 import com.mertceyhan.bitcoinmarket.widget.ui.BitcoinWidget
+import com.mertceyhan.bitcoinmarket.widget.ui.BitcoinWidgetUiState
 
 class MarketWidget : GlanceAppWidget() {
 
@@ -38,9 +38,3 @@ class MarketWidget : GlanceAppWidget() {
     }
 
 }
-
-data class BitcoinWidgetUiState(
-    var currentPrice: String,
-    var changeRate: String,
-    var isChangeRatePositive: Boolean
-)

@@ -14,7 +14,6 @@ import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.features.MainActivity
-import com.mertceyhan.bitcoinmarket.widget.BitcoinWidgetUiState
 import com.mertceyhan.bitcoinmarket.widget.callback.MarketRefreshCallback
 
 @Composable
@@ -31,7 +30,9 @@ fun BitcoinWidget(bitcoinWidgetUiState: BitcoinWidgetUiState) {
         BitcoinWidgetBody(bitcoinWidgetUiState.currentPrice)
         BitcoinFooterBody(
             bitcoinWidgetUiState.isChangeRatePositive,
-            bitcoinWidgetUiState.changeRate
+            bitcoinWidgetUiState.changeRate,
+            bitcoinWidgetUiState.getRateBackground(),
+            bitcoinWidgetUiState.getRateArrow()
         )
     }
 }
@@ -79,20 +80,14 @@ fun BitcoinWidgetBody(currentPrice: String) {
 }
 
 @Composable
-fun BitcoinFooterBody(isChangeRatePositive: Boolean, changeRate: String) {
+fun BitcoinFooterBody(
+    isChangeRatePositive: Boolean,
+    changeRate: String,
+    rateBackground: Int,
+    rateArrow: Int
+) {
 
     val context = LocalContext.current
-
-    val rateBackground = if (isChangeRatePositive) {
-        R.drawable.background_widget_positive_rate
-    } else {
-        R.drawable.background_widget_negative_rate
-    }
-    val rateArrow = if (isChangeRatePositive) {
-        R.drawable.ic_arrow_positive_white
-    } else {
-        R.drawable.ic_arrow_negative_white
-    }
 
     Row(
         modifier = GlanceModifier.fillMaxWidth().padding(top = 10.dp),
