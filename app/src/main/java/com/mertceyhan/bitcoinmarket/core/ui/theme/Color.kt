@@ -18,3 +18,8 @@ val gray950 = Color(0xFFCCD0DD)
 val black = Color(0xFF000000)
 val blackTransparent20 = Color(0x07000000)
 val white = Color(0xFFFFFFFF)
+val ShimmerColorShades = listOf(
+    Color.LightGray.copy(0.9f),
+    Color.LightGray.copy(0.2f),
+    Color.LightGray.copy(0.9f)
+)

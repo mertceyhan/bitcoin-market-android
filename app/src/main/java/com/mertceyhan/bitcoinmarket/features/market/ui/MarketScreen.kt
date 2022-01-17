@@ -23,7 +23,7 @@ import com.mertceyhan.bitcoinmarket.components.*
 import com.mertceyhan.bitcoinmarket.core.ui.UiState
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreen
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreenViewState
-import com.mertceyhan.bitcoinmarket.features.loading.LoadingScreen
+import com.mertceyhan.bitcoinmarket.features.shimmer.ShimmerScreen
 
 
 @Composable
@@ -106,7 +106,7 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
             }
         }
         is UiState.Loading -> {
-            LoadingScreen()
+           ShimmerScreen()
         }
     }
 
