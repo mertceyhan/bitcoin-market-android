@@ -106,7 +106,7 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
             }
         }
         is UiState.Loading -> {
-           ShimmerScreen()
+            ShimmerScreen()
         }
     }
 
