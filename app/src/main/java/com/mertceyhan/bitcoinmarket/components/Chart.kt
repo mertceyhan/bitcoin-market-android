@@ -9,7 +9,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineDataSet
+import com.google.accompanist.placeholder.placeholder
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.core.ui.ShimmerProperty
 import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
 import com.mertceyhan.bitcoinmarket.utils.extensions.getCompatColor
 import com.mertceyhan.bitcoinmarket.utils.extensions.setLineDataSet
@@ -18,6 +20,7 @@ import com.mertceyhan.bitcoinmarket.utils.extensions.setLineDataSet
 fun Chart(
     modifier: Modifier = Modifier,
     lineDataSet: LineDataSet? = null,
+    isShowShimmer: Boolean
 ) {
     AndroidView(
         factory = { context ->
@@ -41,6 +44,12 @@ fun Chart(
         modifier = modifier
             .fillMaxWidth()
             .requiredHeight(300.dp)
+            .placeholder(
+                visible = isShowShimmer,
+                color = ShimmerProperty.color,
+                shape = ShimmerProperty.shape,
+                highlight = ShimmerProperty.highlight
+            )
     )
 }
 

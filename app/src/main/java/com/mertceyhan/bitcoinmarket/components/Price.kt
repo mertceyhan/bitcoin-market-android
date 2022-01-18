@@ -14,7 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension.Companion.fillToConstraints
+import com.google.accompanist.placeholder.placeholder
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.core.ui.ShimmerProperty
 import com.mertceyhan.bitcoinmarket.core.ui.theme.gray700
 import com.mertceyhan.bitcoinmarket.core.ui.theme.typography
 
@@ -27,7 +29,8 @@ fun Price(
     highPrice: String,
     lowPrice: String,
     averagePrice: String,
-    changePrice: String
+    changePrice: String,
+    isShowShimmer: Boolean
 ) {
     ConstraintLayout(modifier = modifier) {
         val (
@@ -44,7 +47,14 @@ fun Price(
         Text(
             text = stringResource(id = R.string.price),
             style = typography.h5,
-            modifier = Modifier.constrainAs(textPrice) {
+            modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
+                .constrainAs(textPrice) {
                 top.linkTo(parent.top)
                 start.linkTo(parent.start)
             })
@@ -53,6 +63,12 @@ fun Price(
             text = stringResource(id = R.string.open),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textOpen) {
                     top.linkTo(textPrice.bottom)
@@ -64,6 +80,12 @@ fun Price(
             text = openPrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, end = 16.dp)
                 .constrainAs(textOpenPrice) {
                     top.linkTo(textOpen.top)
@@ -76,6 +98,12 @@ fun Price(
             text = stringResource(id = R.string.high),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textHigh) {
                     top.linkTo(textOpen.bottom)
@@ -87,6 +115,12 @@ fun Price(
             text = highPrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, end = 16.dp)
                 .constrainAs(textHighPrice) {
                     top.linkTo(textHigh.top)
@@ -99,6 +133,12 @@ fun Price(
             text = stringResource(id = R.string.average),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textAverage) {
                     top.linkTo(textHigh.bottom)
@@ -110,6 +150,12 @@ fun Price(
             text = averagePrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, end = 16.dp)
                 .constrainAs(textAveragePrice) {
                     top.linkTo(textAverage.top)
@@ -122,6 +168,12 @@ fun Price(
             text = stringResource(id = R.string.close),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, start = 16.dp)
                 .constrainAs(textClose) {
                     top.linkTo(textPrice.bottom)
@@ -133,6 +185,12 @@ fun Price(
             text = closePrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textClosePrice) {
                     top.linkTo(textClose.top)
@@ -145,6 +203,12 @@ fun Price(
             text = stringResource(id = R.string.low),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, start = 16.dp)
                 .constrainAs(textLow) {
                     top.linkTo(textClose.bottom)
@@ -156,6 +220,12 @@ fun Price(
             text = lowPrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textLowPrice) {
                     top.linkTo(textLow.top)
@@ -168,6 +238,12 @@ fun Price(
             text = stringResource(id = R.string.change),
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp, start = 16.dp)
                 .constrainAs(textChange) {
                     top.linkTo(textLow.bottom)
@@ -179,6 +255,12 @@ fun Price(
             text = changePrice,
             style = typography.subtitle2,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .padding(top = 8.dp)
                 .constrainAs(textChangePrice) {
                     top.linkTo(textChange.top)
@@ -188,6 +270,12 @@ fun Price(
         )
 
         Divider(modifier = Modifier
+            .placeholder(
+                visible = isShowShimmer,
+                color = ShimmerProperty.color,
+                shape = ShimmerProperty.shape,
+                highlight = ShimmerProperty.highlight
+            )
             .padding(top = 8.dp)
             .constrainAs(viewDivider) {
                 start.linkTo(parent.start)
@@ -212,6 +300,7 @@ private fun PricePreview() {
         lowPrice = "$50,000.00",
         averagePrice = "$50,000.00",
         changePrice = "$50,000.00",
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        isShowShimmer = false
     )
 }

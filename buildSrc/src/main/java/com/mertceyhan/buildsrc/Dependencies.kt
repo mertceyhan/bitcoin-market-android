@@ -55,5 +55,6 @@ object Dependencies {
     const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
     const val glance = "androidx.glance:glance-appwidget:${Versions.glance}"
+    const val accompanist = "com.google.accompanist:accompanist-placeholder:${Versions.accompanist}"
 
 }

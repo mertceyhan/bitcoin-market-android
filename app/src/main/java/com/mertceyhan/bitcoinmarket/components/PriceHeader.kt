@@ -13,7 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import com.google.accompanist.placeholder.placeholder
 import com.mertceyhan.R
+import com.mertceyhan.bitcoinmarket.core.ui.ShimmerProperty
 import com.mertceyhan.bitcoinmarket.core.ui.theme.typography
 
 @Composable
@@ -22,7 +24,8 @@ fun PriceHeader(
     currency: String,
     price: String,
     changeRate: String,
-    isChangeRatePositive: Boolean
+    isChangeRatePositive: Boolean,
+    isShowShimmer: Boolean
 ) {
     ConstraintLayout(modifier = modifier) {
         val (textCurrency, textPrice, imageChangeRate, textChangeRate) = createRefs()
@@ -30,12 +33,23 @@ fun PriceHeader(
         Text(
             text = currency,
             style = typography.subtitle2,
-            modifier = Modifier.constrainAs(textCurrency) {
+            modifier = Modifier.placeholder(
+                visible = isShowShimmer,
+                color = ShimmerProperty.color,
+                shape = ShimmerProperty.shape,
+                highlight = ShimmerProperty.highlight
+            ).constrainAs(textCurrency) {
                 start.linkTo(parent.start)
                 top.linkTo(parent.top)
             })
 
         Text(text = price, style = typography.h4, modifier = Modifier
+            .placeholder(
+                visible = isShowShimmer,
+                color = ShimmerProperty.color,
+                shape = ShimmerProperty.shape,
+                highlight = ShimmerProperty.highlight
+            )
             .constrainAs(textPrice) {
                 start.linkTo(parent.start)
                 top.linkTo(textCurrency.bottom)
@@ -46,6 +60,12 @@ fun PriceHeader(
             painter = painterResource(id = if (isChangeRatePositive) R.drawable.ic_arrow_positive else R.drawable.ic_arrow_negative),
             contentDescription = null,
             modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
                 .constrainAs(imageChangeRate) {
                     top.linkTo(textChangeRate.top)
                     bottom.linkTo(textChangeRate.bottom)
@@ -58,7 +78,14 @@ fun PriceHeader(
         Text(
             text = changeRate,
             style = typography.h6,
-            modifier = Modifier.constrainAs(textChangeRate) {
+            modifier = Modifier
+                .placeholder(
+                    visible = isShowShimmer,
+                    color = ShimmerProperty.color,
+                    shape = ShimmerProperty.shape,
+                    highlight = ShimmerProperty.highlight
+                )
+                .constrainAs(textChangeRate) {
                 top.linkTo(textPrice.top)
                 bottom.linkTo(textPrice.bottom)
                 end.linkTo(parent.end)
@@ -75,6 +102,7 @@ private fun PriceHeaderPreview() {
         currency = stringResource(id = R.string.bitcoin_btc),
         price = "$46340.31",
         changeRate = "-21.08%",
-        isChangeRatePositive = false
+        isChangeRatePositive = false,
+        isShowShimmer = false
     )
 }

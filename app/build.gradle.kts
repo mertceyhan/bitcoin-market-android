@@ -84,6 +84,7 @@ dependencies {
     implementation(Dependencies.accompanistSwipeRefresh)
     implementation(Dependencies.roomKtx)
     implementation(Dependencies.glance)
+    implementation(Dependencies.accompanist)
 
     kapt(Dependencies.daggerHiltCompiler)
     kapt(Dependencies.moshiCodegen)

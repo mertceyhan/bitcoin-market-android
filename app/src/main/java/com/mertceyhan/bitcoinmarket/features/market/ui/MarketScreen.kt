@@ -1,5 +1,6 @@
 package com.mertceyhan.bitcoinmarket.features.market.ui
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,7 +24,6 @@ import com.mertceyhan.bitcoinmarket.components.*
 import com.mertceyhan.bitcoinmarket.core.ui.UiState
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreen
 import com.mertceyhan.bitcoinmarket.features.error.ErrorScreenViewState
-import com.mertceyhan.bitcoinmarket.features.shimmer.ShimmerScreen
 
 
 @Composable
@@ -48,55 +48,7 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
                     },
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .verticalScroll(scrollState)
-                    ) {
-                        PriceHeader(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                            currency = stringResource(id = R.string.bitcoin_btc),
-                            price = viewState.marketInformation.currentPrice,
-                            changeRate = viewState.marketInformation.changeRate,
-                            isChangeRatePositive = viewState.isChangeStatusPositive()
-                        )
-
-                        TimeRangePicker(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                            selectedTimeRange = viewState.getTimeRange()
-                        ) { timeRange ->
-                            marketViewModel.getMarketInformation(timeRange)
-                        }
-
-                        Chart(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(top = 8.dp),
-                            lineDataSet = viewState.getLineDataSet(LocalContext.current),
-                        )
-
-                        Price(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
-                            openPrice = viewState.marketInformation.openPrice,
-                            closePrice = viewState.marketInformation.closePrice,
-                            highPrice = viewState.marketInformation.highPrice,
-                            lowPrice = viewState.marketInformation.lowPrice,
-                            averagePrice = viewState.marketInformation.averagePrice,
-                            changePrice = viewState.marketInformation.changePrice
-                        )
-
-                        AboutChart(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 16.dp, top = 24.dp, end = 16.dp),
-                            aboutChart = viewState.marketInformation.aboutChart
-                        )
-                    }
+                    ScreenContent(scrollState = scrollState, viewState = viewState, marketViewModel = marketViewModel, isShowShimmer = false)
                 }
             }
         }
@@ -106,12 +58,70 @@ fun MarketScreen(marketViewModel: MarketViewModel = hiltViewModel()) {
             }
         }
         is UiState.Loading -> {
-            ShimmerScreen()
+            ScreenContent(scrollState = scrollState, viewState = null, marketViewModel = marketViewModel, isShowShimmer = true)
         }
     }
 
     LaunchedEffect(Unit) {
         marketViewModel.getMarketInformation(TimeRange.THIRTY_DAYS)
+    }
+}
+
+@Composable
+fun ScreenContent(scrollState: ScrollState, viewState: MarketScreenViewState? = null, marketViewModel: MarketViewModel, isShowShimmer: Boolean) {
+    Column(
+        modifier = Modifier
+            .verticalScroll(scrollState)
+    ) {
+        PriceHeader(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            currency = stringResource(id = R.string.bitcoin_btc),
+            price = viewState?.marketInformation?.currentPrice ?: "",
+            changeRate = viewState?.marketInformation?.changeRate ?: "",
+            isChangeRatePositive = viewState?.isChangeStatusPositive() ?: false,
+            isShowShimmer = isShowShimmer
+        )
+
+        TimeRangePicker(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            selectedTimeRange = viewState?.getTimeRange() ?: TimeRange.THIRTY_DAYS,
+            isShowShimmer = isShowShimmer
+        ) { timeRange ->
+            marketViewModel.getMarketInformation(timeRange)
+        }
+
+        Chart(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            lineDataSet = viewState?.getLineDataSet(LocalContext.current),
+            isShowShimmer = isShowShimmer
+        )
+
+        Price(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            openPrice = viewState?.marketInformation?.openPrice ?: "",
+            closePrice = viewState?.marketInformation?.closePrice ?: "",
+            highPrice = viewState?.marketInformation?.highPrice ?: "",
+            lowPrice = viewState?.marketInformation?.lowPrice ?: "",
+            averagePrice = viewState?.marketInformation?.averagePrice ?: "",
+            changePrice = viewState?.marketInformation?.changePrice ?: "",
+            isShowShimmer = isShowShimmer
+        )
+
+        AboutChart(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, top = 24.dp, end = 16.dp),
+            aboutChart = viewState?.marketInformation?.aboutChart ?: "",
+            isShowShimmer = isShowShimmer
+        )
     }
 }
 
