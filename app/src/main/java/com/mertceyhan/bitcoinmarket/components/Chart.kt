@@ -10,7 +10,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineDataSet
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
+import com.mertceyhan.bitcoinmarket.utils.extensions.isSystemInDarkTheme
 import com.mertceyhan.bitcoinmarket.utils.extensions.getCompatColor
 import com.mertceyhan.bitcoinmarket.utils.extensions.setLineDataSet
 
@@ -45,7 +45,7 @@ fun Chart(
 }
 
 private fun getChartAxisLeftTextColor(context: Context): Int =
-    if (context.darkModeEnabled()) {
+    if (context.isSystemInDarkTheme()) {
         context.getCompatColor(R.color.white)
     } else {
         context.getCompatColor(R.color.gray_950)

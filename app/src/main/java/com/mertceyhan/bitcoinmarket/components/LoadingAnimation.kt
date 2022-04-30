@@ -13,7 +13,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
+import com.mertceyhan.bitcoinmarket.theme.BitcoinMarketTheme
 
 @Composable
 fun LoadingAnimation(modifier: Modifier = Modifier) {

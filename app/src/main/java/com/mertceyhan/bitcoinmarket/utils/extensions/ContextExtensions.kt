@@ -10,5 +10,5 @@ fun Context.getCompatColor(@ColorRes id: Int) = ContextCompat.getColor(this, id)
 
 fun Context.getCompatDrawable(@DrawableRes id: Int) = ContextCompat.getDrawable(this, id)
 
-fun Context.darkModeEnabled(): Boolean =
+fun Context.isSystemInDarkTheme(): Boolean =
     (resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)) == Configuration.UI_MODE_NIGHT_YES

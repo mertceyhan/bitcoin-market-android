@@ -1,12 +1,17 @@
-package com.mertceyhan.bitcoinmarket.core.ui.theme
+package com.mertceyhan.bitcoinmarket.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
-import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
-private val lightThemeColors = lightColors(
+val teal200 = Color(0xFF03DAC5)
+val teal700 = Color(0xFF018786)
+val gray700 = Color(0xFF646C81)
+val gray900 = Color(0xFF23262D)
+val black = Color(0xFF000000)
+val white = Color(0xFFFFFFFF)
+
+internal val lightColors = lightColors(
     primary = black,
     primaryVariant = black,
     onPrimary = white,
@@ -19,7 +24,7 @@ private val lightThemeColors = lightColors(
     onBackground = black,
 )
 
-private val darkThemeColors = darkColors(
+internal val darkColors = darkColors(
     primary = black,
     primaryVariant = black,
     onPrimary = white,
@@ -31,15 +36,3 @@ private val darkThemeColors = darkColors(
     background = black,
     onBackground = white,
 )
-
-@Composable
-fun BitcoinMarketTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    MaterialTheme(
-        colors = if (darkTheme) darkThemeColors else lightThemeColors,
-        typography = typography,
-        content = content
-    )
-}
