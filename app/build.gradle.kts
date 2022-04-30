@@ -44,7 +44,6 @@ android {
     }
 
     buildFeatures {
-        dataBinding = true
         compose = true
     }
 
@@ -58,6 +57,7 @@ kapt {
 }
 
 dependencies {
+    implementation(project(":theme"))
 
     implementation(Dependencies.kotlin)
     implementation(Dependencies.coreKtx)

@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.core.ui.theme
+package com.mertceyhan.bitcoinmarket.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -6,18 +6,16 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.mertceyhan.R
 
-
-private val redHatDisplay = FontFamily(
+private val redHatDisplayFontFamily = FontFamily(
     Font(R.font.red_hat_display_regular),
     Font(R.font.red_hat_display_medium, FontWeight.Medium),
     Font(R.font.red_hat_display_bold, FontWeight.Bold),
     Font(R.font.red_hat_display_black, FontWeight.Black)
 )
 
-val typography = Typography(
-    defaultFontFamily = redHatDisplay,
+internal val typography = Typography(
+    defaultFontFamily = redHatDisplayFontFamily,
     h1 = TextStyle(fontSize = 64.sp, fontWeight = FontWeight.Black),
     h2 = TextStyle(fontSize = 48.sp, fontWeight = FontWeight.Black),
     h3 = TextStyle(fontSize = 36.sp, fontWeight = FontWeight.Bold),

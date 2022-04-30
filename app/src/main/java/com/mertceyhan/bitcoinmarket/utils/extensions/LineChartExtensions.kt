@@ -1,6 +1,5 @@
 package com.mertceyhan.bitcoinmarket.utils.extensions
 
-import androidx.databinding.BindingAdapter
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
@@ -8,7 +7,6 @@ import com.github.mikephil.charting.data.LineDataSet
 private const val DEFAULT_ANIMATE_XY_DURATION: Int = 300
 private const val MIN_ENTRY_COUNT_FOR_ANIMATION: Int = 30
 
-@BindingAdapter("setLineDataSet", "animateXDuration", requireAll = false)
 fun LineChart.setLineDataSet(
     lineDataSet: LineDataSet? = null,
     animateXDuration: Int = 0

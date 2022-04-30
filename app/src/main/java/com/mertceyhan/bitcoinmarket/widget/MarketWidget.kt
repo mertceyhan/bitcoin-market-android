@@ -2,13 +2,14 @@ package com.mertceyhan.bitcoinmarket.widget
 
 import androidx.compose.runtime.Composable
 import androidx.datastore.preferences.core.Preferences
-import androidx.glance.*
+import androidx.glance.LocalContext
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.currentState
 import androidx.glance.state.GlanceStateDefinition
 import androidx.glance.state.PreferencesGlanceStateDefinition
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.core.ui.theme.BitcoinMarketTheme
-import com.mertceyhan.bitcoinmarket.utils.extensions.darkModeEnabled
+import com.mertceyhan.bitcoinmarket.theme.BitcoinMarketTheme
+import com.mertceyhan.bitcoinmarket.utils.extensions.isSystemInDarkTheme
 import com.mertceyhan.bitcoinmarket.widget.receiver.MarketWidgetReceiver
 import com.mertceyhan.bitcoinmarket.widget.ui.BitcoinWidget
 import com.mertceyhan.bitcoinmarket.widget.ui.BitcoinWidgetUiState
@@ -32,9 +33,8 @@ class MarketWidget : GlanceAppWidget() {
             isChangeRatePositive = isChangeRatePositive ?: true
         )
 
-        BitcoinMarketTheme(darkTheme = context.darkModeEnabled()) {
+        BitcoinMarketTheme(isSystemInDarkTheme = context.isSystemInDarkTheme()) {
             BitcoinWidget(bitcoinWidgetUiState)
         }
     }
-
 }
