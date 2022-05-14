@@ -8,7 +8,7 @@ import androidx.glance.currentState
 import androidx.glance.state.GlanceStateDefinition
 import androidx.glance.state.PreferencesGlanceStateDefinition
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.theme.BitcoinMarketTheme
+import com.mertceyhan.bitcoinmarket.core.theme.BitcoinMarketTheme
 import com.mertceyhan.bitcoinmarket.utils.extensions.isSystemInDarkTheme
 import com.mertceyhan.bitcoinmarket.widget.receiver.MarketWidgetReceiver
 import com.mertceyhan.bitcoinmarket.widget.ui.BitcoinWidget

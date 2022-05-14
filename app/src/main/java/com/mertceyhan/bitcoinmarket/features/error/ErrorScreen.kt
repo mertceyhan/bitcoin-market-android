@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.theme.BitcoinMarketTheme
+import com.mertceyhan.bitcoinmarket.core.theme.BitcoinMarketTheme
 import com.mertceyhan.bitcoinmarket.theme.gray700
 import com.mertceyhan.bitcoinmarket.theme.gray900
 import com.mertceyhan.bitcoinmarket.theme.white
