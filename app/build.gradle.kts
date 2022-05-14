@@ -57,7 +57,9 @@ kapt {
 }
 
 dependencies {
-    implementation(project(":theme"))
+    implementation(project(":core-theme"))
+    implementation(project(":core-navigation"))
+    implementation(project(":feature-splash"))
 
     implementation(Dependencies.kotlin)
     implementation(Dependencies.coreKtx)

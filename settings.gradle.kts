@@ -1,2 +1,4 @@
 include(":app")
-include(":theme")
+include(":core-theme")
+include(":core-navigation")
+include(":feature-splash")
