@@ -1,4 +1,4 @@
-package com.mertceyhan.bitcoinmarket.theme
+package com.mertceyhan.bitcoinmarket.core.theme
 
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors

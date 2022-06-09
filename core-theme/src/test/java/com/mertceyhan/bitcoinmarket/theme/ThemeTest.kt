@@ -1,7 +1,9 @@
 package com.mertceyhan.bitcoinmarket.theme
 
 import com.google.common.truth.Truth.assertThat
+import com.mertceyhan.bitcoinmarket.core.theme.darkColors
 import com.mertceyhan.bitcoinmarket.core.theme.getColors
+import com.mertceyhan.bitcoinmarket.core.theme.lightColors
 import org.junit.Test
 
 class ThemeTest {
