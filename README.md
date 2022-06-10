@@ -31,6 +31,7 @@ All contributions are welcome! Feel free to jump to the issues and pick one for 
 * [Kardelio](https://github.com/Kardelio)
 * [barissaglam](https://github.com/barissaglam)
 * [enofeb](https://github.com/enofeb)
+* [halilozel1903](https://github.com/halilozel1903)
 
 ## Credits 🙏
 * Thanks to [CoinMarketCap](https://play.google.com/store/apps/details?id=com.coinmarketcap.android&hl=en&gl=US) for the design
