@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension.Companion.fillToConstraints
 import com.mertceyhan.R
-import com.mertceyhan.bitcoinmarket.theme.gray700
+import com.mertceyhan.bitcoinmarket.core.theme.gray700
 
 
 @Composable

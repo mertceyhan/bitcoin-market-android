@@ -2,15 +2,15 @@
 
 object Versions {
 
-    const val gradleVersion = "7.1.2"
-    const val kotlinVersion = "1.6.10"
+    const val gradleVersion = "7.2.1"
+    const val kotlinVersion = "1.6.21"
     const val coreKtxVersion = "1.7.0"
     const val appCompatVersion = "1.4.1"
     const val materialVersion = "1.5.0"
     const val junit4Version = "4.13.2"
     const val junitExtensionsVersion = "1.1.3"
     const val espressoCoreVersion = "3.4.0"
-    const val daggerHiltVersion = "2.41"
+    const val daggerHiltVersion = "2.42"
     const val composeNavigationVersion = "2.4.1"
     const val retrofitVersion = "2.9.0"
     const val okHttpVersion = "4.9.3"
@@ -27,7 +27,7 @@ object Versions {
     const val composeVersion = "1.1.1"
     const val composeActivityVersion = "1.4.0"
     const val composeViewModelVersion = "2.4.1"
-    const val kotlinCompilerExtensionVersion = "1.1.1"
+    const val kotlinCompilerExtensionVersion = "1.2.0-beta03"
     const val composeConstraintLayoutVersion = "1.0.0"
     const val hiltNavigationCompose = "1.0.0"
     const val accompanistSwipeRefresh = "0.23.1"

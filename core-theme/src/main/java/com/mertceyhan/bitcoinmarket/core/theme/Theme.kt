@@ -4,8 +4,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import com.mertceyhan.bitcoinmarket.theme.darkColors
-import com.mertceyhan.bitcoinmarket.theme.lightColors
 
 @Composable
 fun BitcoinMarketTheme(

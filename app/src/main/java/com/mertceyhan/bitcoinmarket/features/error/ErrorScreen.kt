@@ -21,9 +21,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mertceyhan.R
 import com.mertceyhan.bitcoinmarket.core.theme.BitcoinMarketTheme
-import com.mertceyhan.bitcoinmarket.theme.gray700
-import com.mertceyhan.bitcoinmarket.theme.gray900
-import com.mertceyhan.bitcoinmarket.theme.white
+import com.mertceyhan.bitcoinmarket.core.theme.gray700
+import com.mertceyhan.bitcoinmarket.core.theme.gray900
+import com.mertceyhan.bitcoinmarket.core.theme.white
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
